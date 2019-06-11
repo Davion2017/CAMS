@@ -1,6 +1,6 @@
 ﻿namespace CAMS
 {
-    partial class frm_main
+    partial class FrmMain
     {
         /// <summary>
         /// 必需的设计器变量。

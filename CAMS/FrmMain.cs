@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace CAMS
 {
-    public partial class frm_main : Form
+    public partial class FrmMain : FrmBase
     {
-        public frm_main()
+        public FrmMain()
         {
             InitializeComponent();
         }

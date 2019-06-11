@@ -33,6 +33,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="IrisSkin4">
+      <HintPath>E:\迅雷下载\IrisSkin4.dll\IrisSkin4.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,16 +49,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="frm_main.cs">
+    <Compile Include="FrmBase.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frm_main.Designer.cs">
-      <DependentUpon>frm_main.cs</DependentUpon>
+    <Compile Include="FrmBase.Designer.cs">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmMain.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmMain.Designer.cs">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="frm_main.resx">
-      <DependentUpon>frm_main.cs</DependentUpon>
+    <EmbeddedResource Include="FrmBase.resx">
+      <DependentUpon>FrmBase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmMain.resx">
+      <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -75,12 +87,40 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\Skins\Calmness.ssk" />
+    <None Include="Resources\Skins\mp10.ssk" />
+    <None Include="Resources\Skins\MSN.ssk" />
+    <None Include="Resources\Skins\office2007.ssk" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="CAMS.sql" />
+    <Content Include="Resources\images\student\201726705002.jpg" />
+    <Content Include="Resources\images\student\201726705003.jpg" />
+    <Content Include="Resources\images\student\201726705004.jpg" />
+    <Content Include="Resources\images\student\201726705005.jpg" />
+    <Content Include="Resources\images\student\201726705006.jpg" />
+    <Content Include="Resources\images\student\201726705008.jpg" />
+    <Content Include="Resources\images\student\201726705009.jpg" />
+    <Content Include="Resources\images\student\201726705010.jpg" />
+    <Content Include="Resources\images\student\201726705014.jpg" />
+    <Content Include="Resources\images\student\201726705015.jpg" />
+    <Content Include="Resources\images\student\201726705016.jpg" />
+    <Content Include="Resources\images\student\201726705017.jpg" />
+    <Content Include="Resources\images\student\201726705018.jpg" />
+    <Content Include="Resources\images\student\201726705019.jpg" />
+    <Content Include="Resources\images\student\201726705020.jpg" />
+    <Content Include="Resources\images\student\201726705021.jpg" />
+    <Content Include="Resources\images\student\201726705022.jpg" />
+    <Content Include="Resources\images\student\201726705023.jpg" />
+    <Content Include="Resources\images\student\201726705024.jpg" />
+    <Content Include="Resources\images\student\201726705025.jpg" />
+    <Content Include="Resources\images\student\201726705026.jpg" />
+    <Content Include="Resources\images\student\201726705027.jpg" />
+    <Content Include="Resources\images\student\201726705028.jpg" />
+    <Content Include="Resources\images\teacher\003524.jpg" />
+    <Content Include="Resources\IrisSkin4.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

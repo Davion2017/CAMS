@@ -10,11 +10,12 @@ using System.Windows.Forms;
 
 namespace CAMS
 {
-    public partial class FrmMain : FrmBase
+    public partial class FrmMain : Form
     {
         public FrmMain()
         {
             InitializeComponent();
+            skinEngine1.SkinFile = Application.StartupPath.Replace("bin\\Debug", "") + @"/Resources/Skins/mp10.ssk";
         }
     }
 }

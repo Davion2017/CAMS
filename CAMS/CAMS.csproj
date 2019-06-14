@@ -37,6 +37,7 @@
       <HintPath>E:\迅雷下载\IrisSkin4.dll\IrisSkin4.dll</HintPath>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -49,12 +50,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="FrmBase.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmBase.Designer.cs">
-      <DependentUpon>FrmBase.cs</DependentUpon>
-    </Compile>
+    <Compile Include="DBHelper.cs" />
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -63,9 +59,6 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="FrmBase.resx">
-      <DependentUpon>FrmBase.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>

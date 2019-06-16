@@ -40,7 +40,7 @@
             this.labelAccount.AutoSize = true;
             this.labelAccount.Font = new System.Drawing.Font("宋体", 10F);
             this.labelAccount.ForeColor = System.Drawing.Color.Red;
-            this.labelAccount.Location = new System.Drawing.Point(40, 275);
+            this.labelAccount.Location = new System.Drawing.Point(22, 273);
             this.labelAccount.Name = "labelAccount";
             this.labelAccount.Size = new System.Drawing.Size(35, 14);
             this.labelAccount.TabIndex = 1;
@@ -51,7 +51,7 @@
             this.labelTime.AutoSize = true;
             this.labelTime.Font = new System.Drawing.Font("宋体", 10F);
             this.labelTime.ForeColor = System.Drawing.Color.Red;
-            this.labelTime.Location = new System.Drawing.Point(120, 275);
+            this.labelTime.Location = new System.Drawing.Point(96, 273);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(35, 14);
             this.labelTime.TabIndex = 2;
@@ -94,7 +94,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(261, 296);
+            this.ClientSize = new System.Drawing.Size(230, 296);
             this.Controls.Add(this.btnCourse);
             this.Controls.Add(this.btnTea);
             this.Controls.Add(this.btnStu);

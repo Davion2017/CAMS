@@ -56,6 +56,25 @@
     <Compile Include="Admin\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\FrmTeacherInfo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmTeacherInfo.Designer.cs">
+      <DependentUpon>FrmTeacherInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FrmTeacherManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmTeacherManage.Designer.cs">
+      <DependentUpon>FrmTeacherManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FrmTeacherUpdate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmTeacherUpdate.Designer.cs">
+      <DependentUpon>FrmTeacherUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\TeacherInfo.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -79,6 +98,15 @@
     </Compile>
     <EmbeddedResource Include="Admin\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FrmTeacherInfo.resx">
+      <DependentUpon>FrmTeacherInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FrmTeacherManage.resx">
+      <DependentUpon>FrmTeacherManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FrmTeacherUpdate.resx">
+      <DependentUpon>FrmTeacherUpdate.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmLogin.resx">
       <DependentUpon>FrmLogin.cs</DependentUpon>

@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CAMS.Admin;
+using CAMS.Student;
+using CAMS.Teacher;
+
 
 namespace CAMS
 {
@@ -55,13 +59,19 @@ namespace CAMS
                 switch(type)
                 {
                     case "student":
-
+                        FrmStudent stu = new FrmStudent(txtAccount.Text);
+                        stu.Show();
+                        this.Hide();
                         break;
                     case "teacher":
-
+                        FrmTeacher tea = new FrmTeacher(txtAccount.Text);
+                        tea.Show();
+                        this.Hide();
                         break;
                     case "admin":
-
+                        FrmAdmin admin = new FrmAdmin(txtAccount.Text);
+                        admin.Show();
+                        this.Hide();
                         break;
                 }
             }

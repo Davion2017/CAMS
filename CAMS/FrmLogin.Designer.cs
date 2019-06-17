@@ -88,6 +88,7 @@
             this.txtAccount.Name = "txtAccount";
             this.txtAccount.Size = new System.Drawing.Size(207, 32);
             this.txtAccount.TabIndex = 3;
+            this.txtAccount.Text = "201726705020";
             // 
             // txtPassword
             // 
@@ -97,6 +98,7 @@
             this.txtPassword.PasswordChar = '●';
             this.txtPassword.Size = new System.Drawing.Size(207, 32);
             this.txtPassword.TabIndex = 4;
+            this.txtPassword.Text = "123456";
             // 
             // label4
             // 

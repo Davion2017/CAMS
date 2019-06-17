@@ -33,7 +33,7 @@ namespace CAMS.Admin
         {
             labelAccount.Text = this.Account;
             labelAccount.ForeColor = Color.Red;
-            labelTime.Text = DateTime.Today.ToLongDateString();
+            labelTime.Text = DateTime.Now.ToString();
             labelTime.ForeColor = Color.Red;
         }
 
@@ -46,7 +46,8 @@ namespace CAMS.Admin
 
         private void BtnTea_Click(object sender, EventArgs e)
         {
-
+            FrmAdminTeacher adminTeacher = new FrmAdminTeacher();
+            adminTeacher.ShowDialog();
         }
 
         private void BtnCourse_Click(object sender, EventArgs e)

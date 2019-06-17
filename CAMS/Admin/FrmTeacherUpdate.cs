@@ -70,19 +70,19 @@ namespace CAMS.Admin
             }
             else
             {
-                teacherInfo.name = txtName.Text;
+                teacherInfo.Name = txtName.Text;
             }
             if(rbtnMan.Checked)
             {
-                teacherInfo.gender = "男";
+                teacherInfo.Gender = "男";
             }
             else
             {
-                teacherInfo.gender = "女";
+                teacherInfo.Gender = "女";
             }
-            teacherInfo.degree = cbxDegree.Text;
-            teacherInfo.title = cbxTitle.Text;
-            teacherInfo.introduction = rtxtIntroduction.Text;
+            teacherInfo.Degree = cbxDegree.Text;
+            teacherInfo.Title = cbxTitle.Text;
+            teacherInfo.Introduction = rtxtIntroduction.Text;
             return teacherInfo;
         }
 
@@ -109,7 +109,7 @@ namespace CAMS.Admin
                 {
                     File.Copy(newPath, picPath, true);
                 }
-                string sql = "UPDATE teacher SET name='" + teacherInfo.name + "', gender='" + teacherInfo.gender + "', degree='" + teacherInfo.degree + "', title='" + teacherInfo.title + "', introduction='" + teacherInfo.introduction + "' WHERE tcode='" + this.tcode + "';";
+                string sql = "UPDATE teacher SET name='" + teacherInfo.Name + "', gender='" + teacherInfo.Gender + "', degree='" + teacherInfo.Degree + "', title='" + teacherInfo.Title + "', introduction='" + teacherInfo.Introduction + "' WHERE tcode='" + this.tcode + "';";
                 if(DBHelper.GetExcuteNonQuery(sql) > 0)
                 {
                     MessageBox.Show("修改成功");

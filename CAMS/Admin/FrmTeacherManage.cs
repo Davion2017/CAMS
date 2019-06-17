@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CAMS.Common;
 
 namespace CAMS.Admin
 {
@@ -55,7 +56,19 @@ namespace CAMS.Admin
             {
                 MessageBox.Show("删除失败！");
             }
-            
+            TeacherInit();
+        }
+
+        private void FrmAdminTeacher_Load(object sender, EventArgs e)
+        {
+            Style.DgvUI(this.dgvTeacher);
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            FrmTeacherAdd frmTeacherAdd = new FrmTeacherAdd();
+            frmTeacherAdd.Show();
+            TeacherInit();
         }
     }
 }

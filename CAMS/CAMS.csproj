@@ -56,6 +56,12 @@
     <Compile Include="Admin\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\FrmTeacherAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmTeacherAdd.Designer.cs">
+      <DependentUpon>FrmTeacherAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\FrmTeacherInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,7 @@
     <Compile Include="Admin\FrmStuManage.Designer.cs">
       <DependentUpon>FrmStuManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Common\Style.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="FrmLogin.cs">
       <SubType>Form</SubType>
@@ -107,6 +114,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\FrmStuManage.resx">
       <DependentUpon>FrmStuManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FrmTeacherAdd.resx">
+      <DependentUpon>FrmTeacherAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\FrmTeacherInfo.resx">
       <DependentUpon>FrmTeacherInfo.cs</DependentUpon>

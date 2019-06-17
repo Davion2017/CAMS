@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
+using CAMS.Common;
 
 namespace CAMS.Admin
 {
@@ -17,6 +18,10 @@ namespace CAMS.Admin
         private string tcode;
         private string picPath;
         private string newPath;
+        public FrmTeacherUpdate()
+        {
+            InitializeComponent();
+        }
         public FrmTeacherUpdate(string tcode)
         {
             InitializeComponent();

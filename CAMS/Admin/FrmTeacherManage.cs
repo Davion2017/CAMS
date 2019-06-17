@@ -44,14 +44,18 @@ namespace CAMS.Admin
         {
             string tcode = dgvTeacher.CurrentRow.Cells[0].Value.ToString();
             string sql = "DELETE FROM teacher WHERE tcode='" + tcode + "';";
-            if(DBHelper.GetExcuteNonQuery(sql) > 0)
+            try
             {
-                MessageBox.Show("删除成功！");
+                if (DBHelper.GetExcuteNonQuery(sql) > 0)
+                {
+                    MessageBox.Show("删除成功！");
+                }
             }
-            else
+            catch
             {
                 MessageBox.Show("删除失败！");
             }
+            
         }
     }
 }

@@ -41,6 +41,7 @@
             // 
             // dgvTeacher
             // 
+            this.dgvTeacher.AllowUserToResizeColumns = false;
             this.dgvTeacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTeacher.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tcode,

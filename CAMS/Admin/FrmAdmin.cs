@@ -39,7 +39,9 @@ namespace CAMS.Admin
 
         private void BtnStu_Click(object sender, EventArgs e)
         {
-
+            FrmStuManage fsm = new FrmStuManage(this);
+            fsm.Show();
+            this.Hide();
         }
 
         private void BtnTea_Click(object sender, EventArgs e)

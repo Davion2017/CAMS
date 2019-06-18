@@ -9,9 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using System.IO;
-
+using CAMS.Common;
 namespace CAMS.Admin
 {
+
+
     public partial class FrmStuInfo : Form
     {
 
@@ -41,7 +43,7 @@ namespace CAMS.Admin
             cbboxClass.Text = sqlData[5].ToString();
             txtboxMajor.Text = sqlData[6].ToString();
 
-            Dgvmsg(sender, e);
+            Style.DgvUI(dgvCourse);
 
             string inquire = "SELECT\n" +
                     "	course.number 课程号,\n" +
@@ -92,52 +94,7 @@ namespace CAMS.Admin
 
         }
 
-        private void Dgvmsg(object sender, EventArgs e)
-        {
-            dgvCourse.AllowUserToResizeColumns = false;
-            dgvCourse.RowHeadersVisible = false;
-            
-            
-
-            // 单元格颜色设置
-            foreach (DataGridViewRow dgvRow in dgvCourse.Rows)
-            {
-                if (dgvRow.Index % 2 == 0)
-                {
-                    dgvCourse.Rows[dgvRow.Index].DefaultCellStyle.BackColor = Color.LightGray;
-                }
-                else
-                {
-                    dgvCourse.Rows[dgvRow.Index].DefaultCellStyle.BackColor = Color.White;
-                }
-            }
-
-
-            // 单元格宽度调整
-            int width = 0;
-            //对于DataGridView的每一个列都调整
-            for (int i = 0; i < this.dgvCourse.Columns.Count; i++)
-            {
-                //将每一列都调整为自动适应模式
-                this.dgvCourse.AutoResizeColumn(i, DataGridViewAutoSizeColumnMode.AllCells);
-                //记录整个DataGridView的宽度
-                width += this.dgvCourse.Columns[i].Width;
-            }
-            //判断调整后的宽度与原来设定的宽度的关系，如果是调整后的宽度大于原来设定的宽度，
-            //则将DataGridView的列自动调整模式设置为显示的列即可，
-            //如果是小于原来设定的宽度，将模式改为填充。
-            if (width > this.dgvCourse.Size.Width)
-            {
-                this.dgvCourse.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
-            }
-            else
-            {
-                this.dgvCourse.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            }
-            //冻结某列 从左开始 0，1，2
-            dgvCourse.Columns[1].Frozen = true;
-
-        }
+        
 
 
         private void FrmStuInfo_FormClosed(object sender, FormClosedEventArgs e)
@@ -146,26 +103,10 @@ namespace CAMS.Admin
         }
 
 
-        //单元格文本居中
-        private void DgvCourse_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
-        {
-            e.CellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-        }
-
 
         private void DgvCourse_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
         {
-            foreach (DataGridViewRow dgvRow in dgvCourse.Rows)
-            {
-                if (dgvRow.Index % 2 == 0)
-                {
-                    dgvCourse.Rows[dgvRow.Index].DefaultCellStyle.BackColor = Color.LightGray;
-                }
-                else
-                {
-                    dgvCourse.Rows[dgvRow.Index].DefaultCellStyle.BackColor = Color.White;
-                }
-            }
+            Style.DgvBind(dgvCourse);
         }
 
         private void BtnUpdate_Click(object sender, EventArgs e)

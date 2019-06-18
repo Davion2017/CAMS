@@ -84,8 +84,7 @@
             this.dgvStu.Size = new System.Drawing.Size(903, 459);
             this.dgvStu.TabIndex = 0;
             this.dgvStu.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvStu_CellEnter);
-            this.dgvStu.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.DgvStu_CellFormatting);
-            this.dgvStu.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvStu_DataBindingComplete);
+
             // 
             // ID
             // 

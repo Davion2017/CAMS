@@ -50,6 +50,7 @@
             this.picboxPhoto = new System.Windows.Forms.PictureBox();
             this.txtPassword = new System.Windows.Forms.TextBox();
             this.cbboxClass = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.picboxPhoto)).BeginInit();
@@ -58,7 +59,7 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("宋体", 11F);
-            this.btnUpdate.Location = new System.Drawing.Point(476, 19);
+            this.btnUpdate.Location = new System.Drawing.Point(557, 19);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(75, 35);
             this.btnUpdate.TabIndex = 0;
@@ -69,9 +70,9 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvCourse);
-            this.groupBox1.Location = new System.Drawing.Point(12, 158);
+            this.groupBox1.Location = new System.Drawing.Point(12, 169);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(815, 243);
+            this.groupBox1.Size = new System.Drawing.Size(880, 232);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "课程列表";
@@ -104,7 +105,7 @@
             this.dgvCourse.Name = "dgvCourse";
             this.dgvCourse.RowTemplate.Height = 23;
             this.dgvCourse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCourse.Size = new System.Drawing.Size(809, 223);
+            this.dgvCourse.Size = new System.Drawing.Size(874, 212);
             this.dgvCourse.TabIndex = 0;
             this.dgvCourse.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvCourse_DataBindingComplete);
             // 
@@ -174,39 +175,44 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnSave.Location = new System.Drawing.Point(476, 96);
+            this.btnSave.Location = new System.Drawing.Point(557, 96);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(75, 36);
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.BtnSave_Click);
             // 
             // btnPhoto
             // 
-            this.btnPhoto.Location = new System.Drawing.Point(135, 138);
+            this.btnPhoto.Location = new System.Drawing.Point(160, 138);
             this.btnPhoto.Name = "btnPhoto";
             this.btnPhoto.Size = new System.Drawing.Size(62, 25);
             this.btnPhoto.TabIndex = 18;
             this.btnPhoto.Text = "选择照片";
             this.btnPhoto.UseVisualStyleBackColor = true;
+            this.btnPhoto.Visible = false;
+            this.btnPhoto.Click += new System.EventHandler(this.BtnPhoto_Click);
             // 
             // txtboxScode
             // 
             this.txtboxScode.Enabled = false;
-            this.txtboxScode.Location = new System.Drawing.Point(333, 19);
+            this.txtboxScode.Location = new System.Drawing.Point(367, 19);
             this.txtboxScode.Name = "txtboxScode";
             this.txtboxScode.Size = new System.Drawing.Size(92, 21);
             this.txtboxScode.TabIndex = 13;
             this.txtboxScode.Text = "学号";
+            this.txtboxScode.TextChanged += new System.EventHandler(this.TxtboxScode_TextChanged);
             // 
             // txtboxName
             // 
             this.txtboxName.Enabled = false;
-            this.txtboxName.Location = new System.Drawing.Point(238, 19);
+            this.txtboxName.Location = new System.Drawing.Point(272, 19);
             this.txtboxName.Name = "txtboxName";
             this.txtboxName.Size = new System.Drawing.Size(78, 21);
             this.txtboxName.TabIndex = 11;
             this.txtboxName.Text = "姓名";
+            this.txtboxName.TextChanged += new System.EventHandler(this.TxtboxName_TextChanged);
             // 
             // cbboxGender
             // 
@@ -215,39 +221,43 @@
             this.cbboxGender.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.cbboxGender.Location = new System.Drawing.Point(381, 58);
+            this.cbboxGender.Location = new System.Drawing.Point(415, 58);
             this.cbboxGender.Name = "cbboxGender";
             this.cbboxGender.Size = new System.Drawing.Size(44, 20);
             this.cbboxGender.TabIndex = 17;
+            this.cbboxGender.SelectedIndexChanged += new System.EventHandler(this.CbboxGender_SelectedIndexChanged);
             // 
             // txtboxMajor
             // 
             this.txtboxMajor.Enabled = false;
-            this.txtboxMajor.Location = new System.Drawing.Point(238, 111);
+            this.txtboxMajor.Location = new System.Drawing.Point(272, 111);
             this.txtboxMajor.Name = "txtboxMajor";
             this.txtboxMajor.Size = new System.Drawing.Size(187, 21);
             this.txtboxMajor.TabIndex = 16;
             this.txtboxMajor.Text = "专业";
+            this.txtboxMajor.TextChanged += new System.EventHandler(this.TxtboxMajor_TextChanged);
             // 
             // picboxPhoto
             // 
             this.picboxPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picboxPhoto.Location = new System.Drawing.Point(126, 19);
+            this.picboxPhoto.Location = new System.Drawing.Point(151, 19);
             this.picboxPhoto.Name = "picboxPhoto";
             this.picboxPhoto.Size = new System.Drawing.Size(86, 113);
             this.picboxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picboxPhoto.TabIndex = 14;
             this.picboxPhoto.TabStop = false;
             this.picboxPhoto.Tag = "";
+            this.picboxPhoto.Click += new System.EventHandler(this.PicboxPhoto_Click);
             // 
             // txtPassword
             // 
             this.txtPassword.Enabled = false;
-            this.txtPassword.Location = new System.Drawing.Point(238, 58);
+            this.txtPassword.Location = new System.Drawing.Point(306, 58);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(125, 21);
+            this.txtPassword.Size = new System.Drawing.Size(103, 21);
             this.txtPassword.TabIndex = 12;
             this.txtPassword.Text = "密码";
+            this.txtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
             // 
             // cbboxClass
             // 
@@ -258,17 +268,28 @@
             "17级软件工程(软件测试方向)班 ",
             "17级软件工程(软件技术方向)1班 ",
             "17级软件工程(移动终端)2班 "});
-            this.cbboxClass.Location = new System.Drawing.Point(238, 85);
+            this.cbboxClass.Location = new System.Drawing.Point(272, 85);
             this.cbboxClass.Name = "cbboxClass";
             this.cbboxClass.Size = new System.Drawing.Size(187, 20);
             this.cbboxClass.TabIndex = 19;
             this.cbboxClass.Text = "班级";
+            this.cbboxClass.SelectedIndexChanged += new System.EventHandler(this.CbboxClass_SelectedIndexChanged);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(270, 61);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.TabIndex = 20;
+            this.label1.Text = "密码：";
+            this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // FrmStuInfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(840, 406);
+            this.ClientSize = new System.Drawing.Size(904, 406);
             this.Controls.Add(this.cbboxClass);
             this.Controls.Add(this.btnPhoto);
             this.Controls.Add(this.txtboxScode);
@@ -280,12 +301,14 @@
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnUpdate);
+            this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmStuInfo";
             this.ShowIcon = false;
             this.Text = "详细信息";
+            this.Activated += new System.EventHandler(this.FrmStuInfo_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmStuInfo_FormClosed);
             this.Load += new System.EventHandler(this.FrmStuInfo_Load);
             this.groupBox1.ResumeLayout(false);
@@ -319,5 +342,6 @@
         private System.Windows.Forms.PictureBox picboxPhoto;
         private System.Windows.Forms.TextBox txtPassword;
         private System.Windows.Forms.ComboBox cbboxClass;
+        private System.Windows.Forms.Label label1;
     }
 }

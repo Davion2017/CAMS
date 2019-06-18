@@ -13,7 +13,8 @@ namespace CAMS.Admin
         public string scode { get; set; }
         public string gender { get; set; }
         public string photo { get; set; }
-        public string class_id { get; set; }
+        public int class_id { get; set; }
+        public string password { get; set; }
 
     }
 }

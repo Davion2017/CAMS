@@ -35,21 +35,7 @@ namespace CAMS.Admin
             dgvStu.AllowUserToResizeColumns = false;
             dgvStu.RowHeadersVisible = false;
 
-            string inquire = "SELECT * FROM stu_cla_maj;";
-
-            DataTable dtable = DBHelper.GetFillData(inquire);
-            dgvStu.DataSource = dtable;
-            foreach (DataGridViewRow dgvRow in dgvStu.Rows)
-            {
-                if (dgvRow.Index % 2 == 0)
-                {
-                    dgvStu.Rows[dgvRow.Index].DefaultCellStyle.BackColor = Color.LightGray;
-                }
-                else
-                {
-                    dgvStu.Rows[dgvRow.Index].DefaultCellStyle.BackColor = Color.White;
-                }
-            }           
+                       
         }
 
 
@@ -60,26 +46,12 @@ namespace CAMS.Admin
         }
 
 
-        // 防止背景颜色因为排序后消失
-        private void DgvStu_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
-        {
-            foreach (DataGridViewRow dgvRow in dgvStu.Rows)
-            {
-                if (dgvRow.Index % 2 == 0)
-                {
-                    dgvStu.Rows[dgvRow.Index].DefaultCellStyle.BackColor = Color.LightGray;
-                }
-                else
-                {
-                    dgvStu.Rows[dgvRow.Index].DefaultCellStyle.BackColor = Color.White;
-                }
-            }
-        }
 
         //窗口关闭回到 FrmAdmin界面
         private void FrmStuManage_FormClosed(object sender, FormClosedEventArgs e)
         {
             this.Owner.Show();
+            this.Owner.Refresh();
         }
 
 
@@ -128,10 +100,85 @@ namespace CAMS.Admin
 
         private void BtnDetails_Click(object sender, EventArgs e)
         {
-            FrmStuInfo fsi = new FrmStuInfo(this, this.stu.scode);
-            fsi.Show();
-            this.Hide();
+            if(labelScode.Text == "" || labelScode.Text == "学号")
+            {
+                MessageBox.Show("没有学生, 操作失败!");
+                
+            }
+            else
+            {
+                //MessageBox.Show(labelScode.Text);
+                FrmStuInfo fsi = new FrmStuInfo(this, this.stu.scode);
+                fsi.Show();
+                this.Hide();
 
+            }
+            
+
+        }
+
+        private void DgvStu_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            foreach (DataGridViewRow dgvRow in dgvStu.Rows)
+            {
+                if (dgvRow.Index % 2 == 0)
+                {
+                    dgvStu.Rows[dgvRow.Index].DefaultCellStyle.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    dgvStu.Rows[dgvRow.Index].DefaultCellStyle.BackColor = Color.White;
+                }
+            }
+        }
+
+        private void FrmStuManage_Activated(object sender, EventArgs e)
+        {
+            string inquire = "SELECT * FROM stu_cla_maj;";
+
+            DataTable dtable = DBHelper.GetFillData(inquire);
+            dgvStu.DataSource = dtable;
+            foreach (DataGridViewRow dgvRow in dgvStu.Rows)
+            {
+                if (dgvRow.Index % 2 == 0)
+                {
+                    dgvStu.Rows[dgvRow.Index].DefaultCellStyle.BackColor = Color.LightGray;
+                }
+                else
+                {
+                    dgvStu.Rows[dgvRow.Index].DefaultCellStyle.BackColor = Color.White;
+                }
+            }
+        }
+
+        private void BtnAddStu_Click(object sender, EventArgs e)
+        {
+            FrmStuAdd stuAdd = new FrmStuAdd(this);
+            stuAdd.Show();
+            this.Hide();
+        }
+
+        private void BtnDelStu_Click(object sender, EventArgs e)
+        {
+            string delphoto = this.stu.photo;
+            string waringStr = "确认删除\n学号为：" + this.stu.scode + "\n姓名为：" + this.stu.name + "的学生吗?";
+            string delSql = "DELETE FROM student where scode = '" +labelScode.Text+ "';";
+            //MessageBox.Show(delSql);
+            DialogResult result = MessageBox.Show(waringStr, "请确认", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (result == DialogResult.Yes)
+            {
+                
+                File.Delete(delphoto);
+                DBHelper.GetExcuteNonQuery(delSql);
+                FrmStuManage_Activated(sender, e);
+
+                if(dgvStu.RowCount == 0)
+                {
+                    labelName.Text = "无学生";
+                    labelScode.Text = "";
+                    picboxStu.Image = null;
+                }
+            }
         }
     }
 }

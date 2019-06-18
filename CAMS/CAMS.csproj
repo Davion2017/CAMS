@@ -56,6 +56,12 @@
     <Compile Include="Admin\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\FrmStuAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmStuAdd.Designer.cs">
+      <DependentUpon>FrmStuAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\FrmStuInfo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -111,6 +117,9 @@
     </Compile>
     <EmbeddedResource Include="Admin\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FrmStuAdd.resx">
+      <DependentUpon>FrmStuAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\FrmStuInfo.resx">
       <DependentUpon>FrmStuInfo.cs</DependentUpon>

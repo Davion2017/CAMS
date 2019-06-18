@@ -30,7 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvStu = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -57,14 +57,14 @@
             this.dgvStu.AllowUserToResizeColumns = false;
             this.dgvStu.AllowUserToResizeRows = false;
             this.dgvStu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvStu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvStu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -84,7 +84,7 @@
             this.dgvStu.Size = new System.Drawing.Size(903, 459);
             this.dgvStu.TabIndex = 0;
             this.dgvStu.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvStu_CellEnter);
-
+            this.dgvStu.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvStu_DataBindingComplete);
             // 
             // ID
             // 
@@ -190,6 +190,7 @@
             this.btnAddStu.TabIndex = 10;
             this.btnAddStu.Text = "增加学生";
             this.btnAddStu.UseVisualStyleBackColor = true;
+            this.btnAddStu.Click += new System.EventHandler(this.BtnAddStu_Click);
             // 
             // btnDelStu
             // 
@@ -199,6 +200,7 @@
             this.btnDelStu.TabIndex = 11;
             this.btnDelStu.Text = "删除学生";
             this.btnDelStu.UseVisualStyleBackColor = true;
+            this.btnDelStu.Click += new System.EventHandler(this.BtnDelStu_Click);
             // 
             // tbnExit
             // 
@@ -231,9 +233,9 @@
             this.MinimizeBox = false;
             this.Name = "FrmStuManage";
             this.ShowIcon = false;
-            this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "学生管理";
+            this.Activated += new System.EventHandler(this.FrmStuManage_Activated);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmStuManage_FormClosed);
             this.Load += new System.EventHandler(this.FrmStuManage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvStu)).EndInit();

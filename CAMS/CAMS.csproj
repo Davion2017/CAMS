@@ -191,6 +191,7 @@
     <Content Include="Resources\images\student\201726705027.jpg" />
     <Content Include="Resources\images\student\201726705028.jpg" />
     <Content Include="Resources\images\teacher\003524.jpg" />
+    <Content Include="Resources\images\teacher\003725.jpg" />
     <Content Include="Resources\IrisSkin4.dll" />
   </ItemGroup>
   <ItemGroup />

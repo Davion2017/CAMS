@@ -167,17 +167,25 @@ namespace CAMS.Admin
             DialogResult result = MessageBox.Show(waringStr, "请确认", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
-                
-                File.Delete(delphoto);
-                DBHelper.GetExcuteNonQuery(delSql);
-                FrmStuManage_Activated(sender, e);
 
-                if(dgvStu.RowCount == 0)
+                if(File.Exists(delphoto))
+                {
+                    File.Delete(delphoto);
+                    DBHelper.GetExcuteNonQuery(delSql);
+                    FrmStuManage_Activated(sender, e);
+                }
+
+
+                
+
+                if (dgvStu.RowCount == 0)
                 {
                     labelName.Text = "无学生";
                     labelScode.Text = "";
                     picboxStu.Image = null;
                 }
+                
+
             }
         }
     }

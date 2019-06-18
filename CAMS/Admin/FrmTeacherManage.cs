@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CAMS.Common;
 
 namespace CAMS.Admin
 {
@@ -44,14 +45,30 @@ namespace CAMS.Admin
         {
             string tcode = dgvTeacher.CurrentRow.Cells[0].Value.ToString();
             string sql = "DELETE FROM teacher WHERE tcode='" + tcode + "';";
-            if(DBHelper.GetExcuteNonQuery(sql) > 0)
+            try
             {
-                MessageBox.Show("删除成功！");
+                if (DBHelper.GetExcuteNonQuery(sql) > 0)
+                {
+                    MessageBox.Show("删除成功！");
+                }
             }
-            else
+            catch
             {
                 MessageBox.Show("删除失败！");
             }
+            TeacherInit();
+        }
+
+        private void FrmAdminTeacher_Load(object sender, EventArgs e)
+        {
+            Style.DgvUI(this.dgvTeacher);
+        }
+
+        private void BtnAdd_Click(object sender, EventArgs e)
+        {
+            FrmTeacherAdd frmTeacherAdd = new FrmTeacherAdd();
+            frmTeacherAdd.Show();
+            TeacherInit();
         }
     }
 }

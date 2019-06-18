@@ -41,6 +41,7 @@
             // 
             // dgvTeacher
             // 
+            this.dgvTeacher.AllowUserToResizeColumns = false;
             this.dgvTeacher.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvTeacher.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tcode,
@@ -49,7 +50,7 @@
             this.dgvTeacher.Location = new System.Drawing.Point(13, 13);
             this.dgvTeacher.Name = "dgvTeacher";
             this.dgvTeacher.RowTemplate.Height = 23;
-            this.dgvTeacher.Size = new System.Drawing.Size(344, 425);
+            this.dgvTeacher.Size = new System.Drawing.Size(304, 425);
             this.dgvTeacher.TabIndex = 0;
             // 
             // tcode
@@ -79,6 +80,7 @@
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "新增教师";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // btnDel
             // 
@@ -126,6 +128,7 @@
             this.Name = "FrmAdminTeacher";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "教师管理";
+            this.Load += new System.EventHandler(this.FrmAdminTeacher_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvTeacher)).EndInit();
             this.ResumeLayout(false);
 

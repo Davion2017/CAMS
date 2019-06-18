@@ -8,10 +8,13 @@ namespace CAMS.Admin
 {
     class TeacherInfo
     {
-        public string name { get; set; }
-        public string gender { get; set; }
-        public string degree { get; set; }
-        public string title { get; set; }
-        public string introduction { get; set; }
+        public string Name { get; set; }
+        public string Gender { get; set; }
+        public string Degree { get; set; }
+        public string Title { get; set; }
+        public string Introduction { get; set; }
+        public string Password { get; set; }
+        public string Photo { get; set; }
+        public string Tcode { get; set; }
     }
 }

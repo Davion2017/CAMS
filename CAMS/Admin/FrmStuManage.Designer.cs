@@ -30,6 +30,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgvStu = new System.Windows.Forms.DataGridView();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scode = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -56,6 +57,14 @@
             this.dgvStu.AllowUserToResizeColumns = false;
             this.dgvStu.AllowUserToResizeRows = false;
             this.dgvStu.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("宋体", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvStu.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.dgvStu.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvStu.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ID,
@@ -143,6 +152,7 @@
             this.btnDetails.TabIndex = 1;
             this.btnDetails.Text = "详细信息";
             this.btnDetails.UseVisualStyleBackColor = true;
+            this.btnDetails.Click += new System.EventHandler(this.BtnDetails_Click);
             // 
             // labelName
             // 
@@ -169,7 +179,7 @@
             this.picboxStu.Location = new System.Drawing.Point(759, 12);
             this.picboxStu.Name = "picboxStu";
             this.picboxStu.Size = new System.Drawing.Size(75, 89);
-            this.picboxStu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.picboxStu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picboxStu.TabIndex = 5;
             this.picboxStu.TabStop = false;
             // 

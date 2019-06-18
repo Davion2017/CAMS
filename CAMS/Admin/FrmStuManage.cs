@@ -8,23 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
-
+using System.IO;
+using CAMS.Admin;
 namespace CAMS.Admin
 {
 
     
 
+
+
     public partial class FrmStuManage : Form
     {
-        public struct Stu
-        {
-            public string name;
-            public string scode;
-            public string gender;
-            public string photo;
-            public string class_id;
-        }
-        public Stu stu = new Stu();
+
+
+        StudentInfo stu = new StudentInfo();
 
         
 
@@ -32,12 +29,7 @@ namespace CAMS.Admin
         {
             InitializeComponent();
             this.Owner = parent;
-        }
-
-
-
-        
-
+        }      
         private void FrmStuManage_Load(object sender, EventArgs e)
         {
             dgvStu.AllowUserToResizeColumns = false;
@@ -57,11 +49,7 @@ namespace CAMS.Admin
                 {
                     dgvStu.Rows[dgvRow.Index].DefaultCellStyle.BackColor = Color.White;
                 }
-            }
-            inquire.Clone();
-
-
-            
+            }           
         }
 
 
@@ -113,8 +101,13 @@ namespace CAMS.Admin
             if (sqldata.HasRows)
             {
                 sqldata.Read();
-                this.stu.photo = sqldata[0].ToString().Replace("~", Application.StartupPath.Replace("\\bin\\Debug", "\\Resources"));
-                picboxStu.Image = Image.FromFile(this.stu.photo);
+                this.stu.photo = sqldata[0].ToString().Replace("~", Application.StartupPath.Replace("\\bin\\Debug", "\\Resources"));   
+                
+                FileStream fileStream = File.Open(this.stu.photo, FileMode.Open, FileAccess.Read);
+                picboxStu.Image = Image.FromStream(fileStream);
+
+                fileStream.Close();
+                fileStream.Dispose();
 
                 //MessageBox.Show(this.stu.photo);
             }
@@ -131,6 +124,14 @@ namespace CAMS.Admin
             {
                 Application.Exit();
             }
+        }
+
+        private void BtnDetails_Click(object sender, EventArgs e)
+        {
+            FrmStuInfo fsi = new FrmStuInfo(this, this.stu.scode);
+            fsi.Show();
+            this.Hide();
+
         }
     }
 }

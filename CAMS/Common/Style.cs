@@ -42,7 +42,10 @@ namespace CAMS.Common
             //    item.SortMode = DataGridViewColumnSortMode.NotSortable;
             //}
 
-            
+            DgvBind(gridView);
+
+            //设置选择整行
+            gridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
 
 
             // 单元格宽度调整

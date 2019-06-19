@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using CAMS.Common;
 
 namespace CAMS.Admin
 {
@@ -40,7 +41,15 @@ namespace CAMS.Admin
 
             }
             sqlData.Close();
+            this.ClassShow();
         }
 
+        private void ClassShow()
+        {
+            Style.DgvUI(dgvCourseLIst);
+            string sql = "select number, cname, score from course where id in (select course_id from course_class where teacher_id=(select id from teacher where tcode='" + this.tcode + "'))";
+            DataTable table = DBHelper.GetFillData(sql);
+            dgvCourseLIst.DataSource = table;
+        }
     }
 }

@@ -70,5 +70,10 @@ namespace CAMS.Admin
             frmTeacherAdd.Show();
             TeacherInit();
         }
+
+        private void DgvTeacher_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Style.DgvBind(dgvTeacher);
+        }
     }
 }

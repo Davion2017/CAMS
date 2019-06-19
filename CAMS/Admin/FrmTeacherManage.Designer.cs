@@ -52,6 +52,7 @@
             this.dgvTeacher.RowTemplate.Height = 23;
             this.dgvTeacher.Size = new System.Drawing.Size(304, 425);
             this.dgvTeacher.TabIndex = 0;
+            this.dgvTeacher.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvTeacher_DataBindingComplete);
             // 
             // tcode
             // 

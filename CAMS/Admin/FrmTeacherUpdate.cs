@@ -52,7 +52,11 @@ namespace CAMS.Admin
                 this.picPath = Application.StartupPath.Replace("bin\\Debug", "") + sqlData["photo"].ToString().Replace("~", "Resources");
 
                 FileStream fs = new FileStream(this.picPath, FileMode.Open, FileAccess.Read);
-                picPhoto.Image = Image.FromStream(fs);
+                try
+                {
+                    picPhoto.Image = Image.FromStream(fs);
+                }
+                catch { }
                 fs.Close();
                 fs.Dispose();
 

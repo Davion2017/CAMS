@@ -37,7 +37,11 @@ namespace CAMS.Admin
                 rtxtIntroduction.Text = sqlData["introduction"].ToString();
 
                 string picPath = Application.StartupPath.Replace("bin\\Debug", "") + sqlData["photo"].ToString().Replace("~", "Resources");
-                picPhoto.Image = Image.FromFile(picPath);
+                try
+                {
+                    picPhoto.Image = Image.FromFile(picPath);
+                }
+                catch { }
 
             }
             sqlData.Close();

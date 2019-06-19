@@ -202,6 +202,7 @@
     <Content Include="Resources\images\teacher\003524.jpg" />
     <Content Include="Resources\images\teacher\003725.jpg" />
     <Content Include="Resources\IrisSkin4.dll" />
+    <Content Include="Resources\teacher.sql" />
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

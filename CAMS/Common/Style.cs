@@ -70,7 +70,10 @@ namespace CAMS.Common
                 gridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
             //冻结某列 从左开始 0，1，2
-            gridView.Columns[1].Frozen = true;
+            try
+            { gridView.Columns[1].Frozen = true; }
+            catch { }
+            
 
         }
 

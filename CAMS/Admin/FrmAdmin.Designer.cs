@@ -33,6 +33,7 @@
             this.btnStu = new System.Windows.Forms.Button();
             this.btnTea = new System.Windows.Forms.Button();
             this.btnCourse = new System.Windows.Forms.Button();
+            this.btnChoose = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelAccount
@@ -40,7 +41,7 @@
             this.labelAccount.AutoSize = true;
             this.labelAccount.Font = new System.Drawing.Font("宋体", 10F);
             this.labelAccount.ForeColor = System.Drawing.Color.Red;
-            this.labelAccount.Location = new System.Drawing.Point(22, 273);
+            this.labelAccount.Location = new System.Drawing.Point(15, 331);
             this.labelAccount.Name = "labelAccount";
             this.labelAccount.Size = new System.Drawing.Size(35, 14);
             this.labelAccount.TabIndex = 1;
@@ -51,7 +52,7 @@
             this.labelTime.AutoSize = true;
             this.labelTime.Font = new System.Drawing.Font("宋体", 10F);
             this.labelTime.ForeColor = System.Drawing.Color.Red;
-            this.labelTime.Location = new System.Drawing.Point(96, 273);
+            this.labelTime.Location = new System.Drawing.Point(89, 331);
             this.labelTime.Name = "labelTime";
             this.labelTime.Size = new System.Drawing.Size(35, 14);
             this.labelTime.TabIndex = 2;
@@ -90,11 +91,23 @@
             this.btnCourse.UseVisualStyleBackColor = true;
             this.btnCourse.Click += new System.EventHandler(this.BtnCourse_Click);
             // 
+            // btnChoose
+            // 
+            this.btnChoose.Font = new System.Drawing.Font("宋体", 11F);
+            this.btnChoose.Location = new System.Drawing.Point(80, 250);
+            this.btnChoose.Name = "btnChoose";
+            this.btnChoose.Size = new System.Drawing.Size(75, 36);
+            this.btnChoose.TabIndex = 6;
+            this.btnChoose.Text = "选课管理";
+            this.btnChoose.UseVisualStyleBackColor = true;
+            this.btnChoose.Click += new System.EventHandler(this.BtnChoose_Click);
+            // 
             // FrmAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(230, 296);
+            this.ClientSize = new System.Drawing.Size(230, 364);
+            this.Controls.Add(this.btnChoose);
             this.Controls.Add(this.btnCourse);
             this.Controls.Add(this.btnTea);
             this.Controls.Add(this.btnStu);
@@ -121,5 +134,6 @@
         private System.Windows.Forms.Button btnStu;
         private System.Windows.Forms.Button btnTea;
         private System.Windows.Forms.Button btnCourse;
+        private System.Windows.Forms.Button btnChoose;
     }
 }

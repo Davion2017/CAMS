@@ -48,6 +48,7 @@
             this.btnOrganize.TabIndex = 13;
             this.btnOrganize.Text = "排课";
             this.btnOrganize.UseVisualStyleBackColor = true;
+            this.btnOrganize.Click += new System.EventHandler(this.BtnOrganize_Click);
             // 
             // btnOffical
             // 
@@ -58,6 +59,7 @@
             this.btnOffical.TabIndex = 12;
             this.btnOffical.Text = "开启/关闭正选";
             this.btnOffical.UseVisualStyleBackColor = true;
+            this.btnOffical.Click += new System.EventHandler(this.BtnOffical_Click);
             // 
             // btnPlan
             // 
@@ -68,6 +70,7 @@
             this.btnPlan.TabIndex = 11;
             this.btnPlan.Text = "开启/关闭预选";
             this.btnPlan.UseVisualStyleBackColor = true;
+            this.btnPlan.Click += new System.EventHandler(this.BtnPlan_Click);
             // 
             // labStatus
             // 
@@ -87,7 +90,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 19);
             this.label1.TabIndex = 9;
-            this.label1.Text = "当前状态为：";
+            this.label1.Text = "下一阶段为：";
             // 
             // cbxSemester
             // 

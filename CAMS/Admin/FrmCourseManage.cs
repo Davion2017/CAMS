@@ -42,5 +42,18 @@ namespace CAMS.Admin
             string url = "http://jwc.jxnu.edu.cn/MyControl/All_Display.aspx?UserControl=kcdg_print.ascx&kcmlh=" + this.dgvCourse.CurrentRow.Cells[1].Value.ToString();
             Process.Start("chrome.exe", url);
         }
+
+        private void BtnDelete_Click(object sender, EventArgs e)
+        {
+            string sql = "";
+            if(DBHelper.GetExcuteNonQuery(sql) > 0)
+            {
+                MessageBox.Show("删除成功！");
+            }
+            else
+            {
+                MessageBox.Show("删除失败！");
+            }
+        }
     }
 }

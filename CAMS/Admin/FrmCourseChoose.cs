@@ -52,5 +52,66 @@ namespace CAMS.Admin
             }
             InitStatus();
         }
+
+        private void Course_Change(string status)
+        {
+            string sql = "UPDATE course_status SET status='1' where name='" + status + "';";
+            DBHelper.GetExcuteNonQuery(sql);
+        }
+
+        private void BtnPlan_Click(object sender, EventArgs e)
+        {
+            string sql = "select count(*) from course_status where status='1';";
+            switch(DBHelper.ExecuteScalar<int>(sql))
+            {
+                case 0:
+                    this.Course_Change("预选");
+                    MessageBox.Show("预选开启");
+                    break;
+                case 1:
+                    this.Course_Change("预选完成");
+                    MessageBox.Show("预选结束");
+                    break;
+                default:
+                    MessageBox.Show("当前不可执行该操作，请选择其他选项");
+                    break;
+            }
+            InitStatus();
+        }
+
+        private void BtnOffical_Click(object sender, EventArgs e)
+        {
+            string sql = "select count(*) from course_status where status='1';";
+            switch (DBHelper.ExecuteScalar<int>(sql))
+            {
+                case 2:
+                    this.Course_Change("正选");
+                    MessageBox.Show("正选开启");
+                    break;
+                case 3:
+                    this.Course_Change("正选完成");
+                    MessageBox.Show("正选结束");
+                    break;
+                default:
+                    MessageBox.Show("当前不可执行该操作，请选择其他选项");
+                    break;
+            }
+            InitStatus();
+        }
+
+        private void BtnOrganize_Click(object sender, EventArgs e)
+        {
+            string sql = "select count(*) from course_status where status='1';";
+            int select = DBHelper.ExecuteScalar<int>(sql);
+            if (select == 4 || select == 5)
+            {
+                this.Course_Change("排课");
+            }
+            else
+            {
+                MessageBox.Show("当前不可执行该操作，请选择其他选项");
+            }
+            InitStatus();
+        }
     }
 }

@@ -176,6 +176,8 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\course.sql" />
+    <Content Include="Resources\curriculum.sql" />
     <Content Include="Resources\images\student\201726705002.jpg" />
     <Content Include="Resources\images\student\201726705003.jpg" />
     <Content Include="Resources\images\student\201726705004.jpg" />

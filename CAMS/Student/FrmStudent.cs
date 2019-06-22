@@ -38,7 +38,7 @@ namespace CAMS.Student
             sqlData.Read();
             string s = Application.StartupPath.Replace("bin\\Debug", "") + sqlData["photo"].ToString().Replace("~", "Resources");
             pictureBox1.Image = Image.FromFile(s);
-
+            pictureBox2.Image = Image.FromFile(Application.StartupPath.Replace("bin\\Debug", "") + "Resources\\images\\student\\timg.jpg");
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -50,7 +50,9 @@ namespace CAMS.Student
 
         private void Button4_Click(object sender, EventArgs e)
         {
-
+            SearchTeacher searchteacher = new SearchTeacher(Account);
+            this.panel2.Controls.Clear();
+            this.panel2.Controls.Add(searchteacher);
         }
 
         private void Button2_Click(object sender, EventArgs e)
@@ -58,6 +60,17 @@ namespace CAMS.Student
             updateStuInfo updatestuinfo = new updateStuInfo(Account);
             this.panel2.Controls.Clear();
             this.panel2.Controls.Add(updatestuinfo);
+        }
+
+        private void PictureBox2_Click(object sender, EventArgs e)
+        {
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            SearchStu searchstu = new SearchStu(Account);
+            this.panel2.Controls.Clear();
+            this.panel2.Controls.Add(searchstu);
         }
     }
 }

@@ -18,5 +18,10 @@ namespace CAMS.Teacher
             InitializeComponent();
             this.Account = account;
         }
+
+        private void FrmTeacher_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

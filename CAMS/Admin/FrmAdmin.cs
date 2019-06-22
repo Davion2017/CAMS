@@ -52,7 +52,14 @@ namespace CAMS.Admin
 
         private void BtnCourse_Click(object sender, EventArgs e)
         {
+            FrmCourseManage frmCourseManage = new FrmCourseManage();
+            frmCourseManage.Show();
+        }
 
+        private void BtnChoose_Click(object sender, EventArgs e)
+        {
+            FrmCourseChoose frmCourseChoose = new FrmCourseChoose();
+            frmCourseChoose.Show();
         }
     }
 }

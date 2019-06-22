@@ -56,6 +56,18 @@
     <Compile Include="Admin\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\FrmCourseChoose.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmCourseChoose.Designer.cs">
+      <DependentUpon>FrmCourseChoose.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FrmCourseManage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmCourseManage.Designer.cs">
+      <DependentUpon>FrmCourseManage.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\FrmStuAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +137,12 @@
     <EmbeddedResource Include="Admin\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FrmCourseChoose.resx">
+      <DependentUpon>FrmCourseChoose.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FrmCourseManage.resx">
+      <DependentUpon>FrmCourseManage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Admin\FrmStuAdd.resx">
       <DependentUpon>FrmStuAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -176,6 +194,9 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Resources\course.sql" />
+    <Content Include="Resources\course_status.sql" />
+    <Content Include="Resources\curriculum.sql" />
     <Content Include="Resources\images\student\201726705002.jpg" />
     <Content Include="Resources\images\student\201726705003.jpg" />
     <Content Include="Resources\images\student\201726705004.jpg" />

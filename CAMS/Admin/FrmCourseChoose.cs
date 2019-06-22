@@ -59,10 +59,15 @@ namespace CAMS.Admin
             DBHelper.GetExcuteNonQuery(sql);
         }
 
-        private void BtnPlan_Click(object sender, EventArgs e)
+        private int Get_Status()
         {
             string sql = "select count(*) from course_status where status='1';";
-            switch(DBHelper.ExecuteScalar<int>(sql))
+            return DBHelper.ExecuteScalar<int>(sql);
+        }
+
+        private void BtnPlan_Click(object sender, EventArgs e)
+        {
+            switch(this.Get_Status())
             {
                 case 0:
                     this.Course_Change("预选");
@@ -81,14 +86,13 @@ namespace CAMS.Admin
 
         private void BtnOffical_Click(object sender, EventArgs e)
         {
-            string sql = "select count(*) from course_status where status='1';";
-            switch (DBHelper.ExecuteScalar<int>(sql))
+            switch (this.Get_Status())
             {
-                case 2:
+                case 4:
                     this.Course_Change("正选");
                     MessageBox.Show("正选开启");
                     break;
-                case 3:
+                case 5:
                     this.Course_Change("正选完成");
                     MessageBox.Show("正选结束");
                     break;
@@ -101,11 +105,24 @@ namespace CAMS.Admin
 
         private void BtnOrganize_Click(object sender, EventArgs e)
         {
-            string sql = "select count(*) from course_status where status='1';";
-            int select = DBHelper.ExecuteScalar<int>(sql);
-            if (select == 4 || select == 5)
+            int result = this.Get_Status();
+            if(result == 2 || result == 3)
             {
                 this.Course_Change("排课");
+            }
+            else
+            {
+                MessageBox.Show("当前不可执行该操作，请选择其他选项");
+            }
+            InitStatus();
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            if(this.Get_Status() == 3)
+            {
+                this.Course_Change("排课完成");
+                MessageBox.Show("排课结束");
             }
             else
             {

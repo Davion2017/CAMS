@@ -30,6 +30,7 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -37,7 +38,6 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -63,6 +63,15 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(204, 438);
             this.panel1.TabIndex = 1;
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(28, 314);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(148, 34);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "培养方案";
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // button6
             // 
@@ -109,6 +118,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "修改信息";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button1
             // 
@@ -126,15 +136,6 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(917, 659);
             this.panel2.TabIndex = 6;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(28, 314);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(148, 34);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "培养方案";
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // FrmStudent
             // 

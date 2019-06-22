@@ -43,12 +43,21 @@ namespace CAMS.Student
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            this.Hide();
+            StudentIfoQuery studentifoquery = new StudentIfoQuery(Account);
+            this.panel2.Controls.Clear();
+            this.panel2.Controls.Add(studentifoquery);
         }
 
         private void Button4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Button2_Click(object sender, EventArgs e)
+        {
+            updateStuInfo updatestuinfo = new updateStuInfo(Account);
+            this.panel2.Controls.Clear();
+            this.panel2.Controls.Add(updatestuinfo);
         }
     }
 }

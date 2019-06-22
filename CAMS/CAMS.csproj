@@ -128,11 +128,17 @@
     <Compile Include="Student\FrmStudent.Designer.cs">
       <DependentUpon>FrmStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Student\UserControl1.cs">
+    <Compile Include="Student\StudentIfoQuery.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="Student\UserControl1.Designer.cs">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <Compile Include="Student\StudentIfoQuery.Designer.cs">
+      <DependentUpon>StudentIfoQuery.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\updateStuInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student\updateStuInfo.Designer.cs">
+      <DependentUpon>updateStuInfo.cs</DependentUpon>
     </Compile>
     <Compile Include="Teacher\FrmTeacher.cs">
       <SubType>Form</SubType>
@@ -185,8 +191,11 @@
     <EmbeddedResource Include="Student\FrmStudent.resx">
       <DependentUpon>FrmStudent.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Student\UserControl1.resx">
-      <DependentUpon>UserControl1.cs</DependentUpon>
+    <EmbeddedResource Include="Student\StudentIfoQuery.resx">
+      <DependentUpon>StudentIfoQuery.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\updateStuInfo.resx">
+      <DependentUpon>updateStuInfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

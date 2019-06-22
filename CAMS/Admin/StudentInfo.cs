@@ -35,6 +35,7 @@ namespace CAMS.Admin
         {
             string sql = "select * from student where scode='" + scode + "';";
             SqlDataReader sqlData = DBHelper.GetDataReader(sql);
+            sqlData.Read();
 
             name = sqlData["name"].ToString();
             this.scode = scode;

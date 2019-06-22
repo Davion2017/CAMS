@@ -14,16 +14,13 @@ namespace CAMS.Admin
 {
 
     
-
+    
 
 
     public partial class FrmStuManage : Form
     {
-
-
-        StudentInfo stu = new StudentInfo();
-
-        
+        readonly StudentInfo stu = new StudentInfo();
+        readonly StudentInfo checkstu = new StudentInfo();
 
         public FrmStuManage(Form parent)
         {
@@ -35,7 +32,28 @@ namespace CAMS.Admin
             dgvStu.AllowUserToResizeColumns = false;
             dgvStu.RowHeadersVisible = false;
 
-                       
+            string check_view = "IF EXISTS ( SELECT TABLE_NAME FROM INFORMATION_SCHEMA.VIEWS WHERE TABLE_NAME = N'stu_cla_maj' ) BEGIN\n" +
+                                "	DROP VIEW stu_cla_maj PRINT 'cnzai' \n" +
+                                "	END \n";
+            DBHelper.GetExcuteNonQuery(check_view);
+            
+            check_view =        "		CREATE VIEW stu_cla_maj AS SELECT\n" +
+                                "		student.id,\n" +
+                                "		student.scode 学号,\n" +
+                                "		student.name 姓名,\n" +
+                                "		student.password 密码,\n" +
+                                "		student.gender 性别,\n" +
+                                "		class.name 班级,\n" +
+                                "		major.name 专业 \n" +
+                                "	FROM\n" +
+                                "		student,\n" +
+                                "		class,\n" +
+                                "		major \n" +
+                                "	WHERE\n" +
+                                "		student.class_id = class.id \n" +
+                                "		AND class.major_id = major.id;\n";
+
+            DBHelper.GetExcuteNonQuery(check_view);
         }
 
 
@@ -187,6 +205,52 @@ namespace CAMS.Admin
                 
 
             }
+        }
+
+        private void BtnSelect_Click(object sender, EventArgs e)
+        {
+            this.checkstu.name = txtboxName.Text;
+            this.checkstu.scode = txtboxScode.Text;
+            this.checkstu.gender = combboxGender.Text;
+
+            //MessageBox.Show(combboxClass.Text);
+            string sqlSelect = Select_Stu(this.checkstu.name, this.checkstu.scode, this.checkstu.gender, combboxClass.Text);
+            DataTable dtable = DBHelper.GetFillData(sqlSelect);
+            dgvStu.DataSource = dtable;
+
+
+
+            //MessageBox.Show(sqlSelect);
+
+        }
+
+        string Select_Stu(string name, string scode, string gender, string class_name)
+        {
+            if(name != "")
+            {
+                return "SELECT * FROM stu_cla_maj where 姓名 ='"+name+"';";
+            }
+            else if(scode != "")
+            {
+                return "SELECT * FROM stu_cla_maj where 学号 ='" + scode + "';";
+            }
+            else if(gender != "")               
+            {
+                if (class_name != "")
+                    return "SELECT * FROM stu_cla_maj where  性别 = '"+gender+"' and 班级 = '" + class_name + "' ;";
+                else
+                    return "SELECT * FROM stu_cla_maj where 性别 ='" + gender + "';";
+            }
+            else if(class_name != "")
+            {
+                return "SELECT * FROM stu_cla_maj where 班级 = '" + class_name + "';";
+            }
+            else
+            {
+                return "SELECT * FROM stu_cla_maj ;";
+            }
+
+            
         }
     }
 }

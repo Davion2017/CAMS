@@ -161,6 +161,7 @@
             this.Controls.Add(this.labStatus);
             this.Controls.Add(this.label1);
             this.Name = "FrmCourseChoose";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "选课管理";
             this.Load += new System.EventHandler(this.FrmCourseChoose_Load);
             this.ResumeLayout(false);

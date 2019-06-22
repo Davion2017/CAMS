@@ -122,11 +122,37 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Student\FrmStudent.cs">
+    <Compile Include="..\..\..\..\..\Desktop\FrmStudent.cs">
       <SubType>Form</SubType>
+      <Link>Student\FrmStudent.cs</Link>
     </Compile>
-    <Compile Include="Student\FrmStudent.Designer.cs">
+    <Compile Include="..\..\..\..\..\Desktop\FrmStudent.Designer.cs">
       <DependentUpon>FrmStudent.cs</DependentUpon>
+      <Link>Student\FrmStudent.Designer.cs</Link>
+    </Compile>
+    <Compile Include="Student\EduPro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student\EduPro.Designer.cs">
+      <DependentUpon>EduPro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\SearchCourseInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student\SearchCourseInfo.Designer.cs">
+      <DependentUpon>SearchCourseInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\SearchStu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student\SearchStu.Designer.cs">
+      <DependentUpon>SearchStu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Student\SearchTeacher.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student\SearchTeacher.Designer.cs">
+      <DependentUpon>SearchTeacher.cs</DependentUpon>
     </Compile>
     <Compile Include="Student\StudentIfoQuery.cs">
       <SubType>UserControl</SubType>
@@ -188,8 +214,21 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Student\FrmStudent.resx">
+    <EmbeddedResource Include="..\..\..\..\..\Desktop\FrmStudent.resx">
       <DependentUpon>FrmStudent.cs</DependentUpon>
+      <Link>Student\FrmStudent.resx</Link>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\EduPro.resx">
+      <DependentUpon>EduPro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\SearchCourseInfo.resx">
+      <DependentUpon>SearchCourseInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\SearchStu.resx">
+      <DependentUpon>SearchStu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\SearchTeacher.resx">
+      <DependentUpon>SearchTeacher.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Student\StudentIfoQuery.resx">
       <DependentUpon>StudentIfoQuery.cs</DependentUpon>

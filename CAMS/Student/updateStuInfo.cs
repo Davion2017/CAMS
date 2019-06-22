@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CAMS.Admin;
 using System.Data.SqlClient;
+using System.IO;
 
 namespace CAMS.Student
 {
@@ -49,7 +50,7 @@ namespace CAMS.Student
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            string SqlStr = "Data Source=DESKTOP-R5GQMVG;Initial Catalog=xk;Integrated Security=True";
+            string SqlStr = "Data Source=DESKTOP-R5GQMVG\\SQLEXPRESS;Initial Catalog=xk;Integrated Security=True";
             con = new SqlConnection(SqlStr);
             string s = "select * from student where scode='" + stu.scode + "';";
             SqlDataReader sqlData = DBHelper.GetDataReader(s);
@@ -69,9 +70,58 @@ namespace CAMS.Student
                     textBox1.Clear();
                     textBox3.Clear();
                 }
-                else
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("修改错误，错误原因:" + ex.Message);
+            }
+            finally
+            {
+                if (con.State == ConnectionState.Open)
                 {
-                    MessageBox.Show("班级学生信息不存在");
+                    con.Close();
+                }
+            }
+        }
+        public static byte[] GetImageToByte(string imagePath)
+        {
+            using (FileStream files = new FileStream(imagePath, FileMode.Open))
+            {
+                byte[] imgByte = new byte[files.Length];
+                files.Read(imgByte, 0, imgByte.Length);
+                files.Close();
+                return imgByte;
+            }
+        }
+        private void Button1_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog op = new OpenFileDialog();
+            op.Filter = "jpg文件(*jpg)|*.jpg|bmp文件(*bmp)|*.bmp|gif文件(*gif)|*.gif";
+            op.ShowDialog();
+            string FileName = op.FileName;
+            this.textBox1.Text = FileName;
+        }
+
+        private void Button3_Click(object sender, EventArgs e)
+        {
+            string Path = this.textBox1.Text;
+            //Image img = Image.FromFile(Path);
+            //this.pictureBox1.Image = img;     
+            string SqlStr = "Data Source=DESKTOP-R5GQMVG\\SQLEXPRESS;Initial Catalog=xk;Integrated Security=True";
+            con = new SqlConnection(SqlStr);
+            string s = Path.Replace("C:\\Users\\hp\\source\\repos\\Davion2017\\CAMS\\CAMS\\Resources", "~");
+            string strsql = "Update student set photo ='" + s + "' where scode='" + stu.scode + "'";
+            SqlCommand cmd = new SqlCommand(strsql, con);
+            try
+            {
+                if (con.State == ConnectionState.Closed)
+                {
+                    con.Open();
+                }
+                int num = cmd.ExecuteNonQuery();
+                if (num > 0)
+                {
+                    MessageBox.Show("修改成功");
                     textBox1.Clear();
                     textBox3.Clear();
                 }
@@ -87,6 +137,7 @@ namespace CAMS.Student
                     con.Close();
                 }
             }
+            this.button3.Text = "完成";
         }
     }
 }

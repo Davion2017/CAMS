@@ -43,11 +43,34 @@ namespace CAMS.Admin
 
         private void BtnNewClass_Click(object sender, EventArgs e)
         {
-            string number = dgvPlanCourse.CurrentRow.Cells[0].Value.ToString();
-            string cname = dgvPlanCourse.CurrentRow.Cells[1].Value.ToString();
-            FrmClassAdd frmClassAdd = new FrmClassAdd(number, cname, semester);
-            frmClassAdd.ShowDialog();
-            UpdateCourse();
+            if(CheckNewClass())
+            {
+                string number = dgvPlanCourse.CurrentRow.Cells[0].Value.ToString();
+                string cname = dgvPlanCourse.CurrentRow.Cells[1].Value.ToString();
+                FrmClassAdd frmClassAdd = new FrmClassAdd(number, cname, semester);
+                frmClassAdd.ShowDialog();
+                UpdateCourse();
+            }
+        }
+
+        private bool CheckNewClass()
+        {
+
+            string course_id = DBHelper.ExecuteScalar<int>("select id from course where" +
+                " number='" + dgvPlanCourse.CurrentRow.Cells[0].Value.ToString() + "'").ToString();
+            string sql = "select sum(max_class_size) from course_class where course_id='" + course_id + "' and" +
+                " semester_id='" + semester + "';";
+
+            //课程预选时的总人数
+            int needSize = Convert.ToInt32(dgvPlanCourse.CurrentRow.Cells[2].Value.ToString());
+            //课程已开班的容量
+            int currentSize = DBHelper.ExecuteScalar<int>(sql);
+            if(currentSize >= needSize)
+            {
+                MessageBox.Show("该课程已有足够容量，无需再添加班级！");
+                return false;
+            }
+            return true;
         }
 
         private void BtnDelClass_Click(object sender, EventArgs e)

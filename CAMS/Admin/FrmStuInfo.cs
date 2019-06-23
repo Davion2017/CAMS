@@ -267,5 +267,10 @@ namespace CAMS.Admin
         {
 
         }
+
+        private void DgvCourse_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }

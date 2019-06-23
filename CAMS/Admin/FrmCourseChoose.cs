@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -109,6 +110,9 @@ namespace CAMS.Admin
             if(result == 2 || result == 3)
             {
                 this.Course_Change("排课");
+                string semester = Regex.Replace(labSemester.Text, @"[^0-9]+", "");
+                FrmCourseSet frmCourseSet = new FrmCourseSet(semester);
+                frmCourseSet.Show();
             }
             else
             {

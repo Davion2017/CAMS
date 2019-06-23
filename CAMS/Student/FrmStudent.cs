@@ -24,13 +24,6 @@ namespace CAMS.Student
             this.Account = account;
             this.Stu.scode = Account;
         }
-        public static Image GetByteToImage(byte[] bytes)
-        {
-            MemoryStream ms = new MemoryStream(bytes, 0, bytes.Length);
-
-            Image img = Image.FromStream(ms, true, false);
-            return img;
-        }
         private void FrmStudent_Load(object sender, EventArgs e)
         {
             string sqlphoto = "select photo from student where scode = '" + this.Stu.scode + "';";
@@ -64,6 +57,11 @@ namespace CAMS.Student
 
         private void PictureBox2_Click(object sender, EventArgs e)
         {
+            string sqlphoto = "select photo from student where scode = '" + this.Stu.scode + "';";
+            SqlDataReader sqlData = DBHelper.GetDataReader(sqlphoto);
+            sqlData.Read();
+            string s = Application.StartupPath.Replace("bin\\Debug", "") + sqlData["photo"].ToString().Replace("~", "Resources");
+            pictureBox1.Image = Image.FromFile(s);
         }
 
         private void Button3_Click(object sender, EventArgs e)
@@ -71,6 +69,27 @@ namespace CAMS.Student
             SearchStu searchstu = new SearchStu(Account);
             this.panel2.Controls.Clear();
             this.panel2.Controls.Add(searchstu);
+        }
+
+        private void Button5_Click(object sender, EventArgs e)
+        {
+            SearchCourseInfo searchcourseinfo = new SearchCourseInfo(Account);
+            this.panel2.Controls.Clear();
+            this.panel2.Controls.Add(searchcourseinfo);
+        }
+
+        private void Button7_Click(object sender, EventArgs e)
+        {
+            EduPro edupro = new EduPro(Account);
+            this.panel2.Controls.Clear();
+            this.panel2.Controls.Add(edupro);
+        }
+
+        private void Button6_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FrmLogin frmLogin = new FrmLogin();
+            frmLogin.Show();
         }
     }
 }

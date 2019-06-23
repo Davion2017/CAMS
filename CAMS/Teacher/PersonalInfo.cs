@@ -16,6 +16,10 @@ namespace CAMS.Teacher
     {
        
         TeacherInfo Tea = new TeacherInfo();
+        public PersonalInfo()
+        {
+            InitializeComponent();        
+        }
         public PersonalInfo(string Account)
         {
             InitializeComponent();

@@ -39,10 +39,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.label9 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // label12
@@ -152,45 +156,79 @@
             this.textBox1.Size = new System.Drawing.Size(317, 25);
             this.textBox1.TabIndex = 23;
             // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(180, 279);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(317, 25);
-            this.textBox2.TabIndex = 24;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(64, 281);
+            this.button1.Location = new System.Drawing.Point(291, 250);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(75, 29);
             this.button1.TabIndex = 25;
-            this.button1.Text = "button1";
+            this.button1.Text = "确认修改";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(321, 498);
+            this.button2.Location = new System.Drawing.Point(64, 314);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.Size = new System.Drawing.Size(75, 25);
             this.button2.TabIndex = 26;
-            this.button2.Text = "button2";
+            this.button2.Text = "上传文件";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("宋体", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label9.Location = new System.Drawing.Point(30, 207);
+            this.label9.Font = new System.Drawing.Font("宋体", 12F);
+            this.label9.Location = new System.Drawing.Point(60, 212);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(130, 24);
+            this.label9.Size = new System.Drawing.Size(109, 20);
             this.label9.TabIndex = 27;
             this.label9.Text = "修改密码：";
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(291, 374);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 28);
+            this.button3.TabIndex = 28;
+            this.button3.Text = "完成";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(735, 207);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(188, 250);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 29;
+            this.pictureBox1.TabStop = false;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(180, 314);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(317, 25);
+            this.textBox2.TabIndex = 24;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("宋体", 9F);
+            this.label10.Location = new System.Drawing.Point(602, 207);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(127, 15);
+            this.label10.TabIndex = 30;
+            this.label10.Text = "您选择的图片是：";
             // 
             // UpdateTeaIfo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -207,7 +245,9 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "UpdateTeaIfo";
-            this.Size = new System.Drawing.Size(1139, 586);
+            this.Size = new System.Drawing.Size(1218, 555);
+            this.Load += new System.EventHandler(this.UpdateTeaIfo_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -226,9 +266,12 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label10;
     }
 }

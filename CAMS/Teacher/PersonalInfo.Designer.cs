@@ -178,7 +178,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "PersonalInfo";
-            this.Size = new System.Drawing.Size(1168, 619);
+            this.Size = new System.Drawing.Size(1218, 555);
             this.Load += new System.EventHandler(this.PersonalInfo_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

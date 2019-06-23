@@ -134,6 +134,18 @@
     <Compile Include="Teacher\FrmTeacher.Designer.cs">
       <DependentUpon>FrmTeacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Teacher\PersonalInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teacher\PersonalInfo.Designer.cs">
+      <DependentUpon>PersonalInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\UpdateTeaIfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teacher\UpdateTeaIfo.Designer.cs">
+      <DependentUpon>UpdateTeaIfo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </EmbeddedResource>
@@ -178,6 +190,12 @@
     </Compile>
     <EmbeddedResource Include="Teacher\FrmTeacher.resx">
       <DependentUpon>FrmTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\PersonalInfo.resx">
+      <DependentUpon>PersonalInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\UpdateTeaIfo.resx">
+      <DependentUpon>UpdateTeaIfo.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

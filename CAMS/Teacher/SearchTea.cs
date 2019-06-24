@@ -7,29 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.SqlClient;
 using CAMS.Admin;
+using System.Data.SqlClient;
 
-namespace CAMS.Student
+namespace CAMS.Teacher
 {
-    public partial class SearchTeacher : UserControl
+    public partial class SearchTea : UserControl
     {
+        TeacherInfo Tea = new TeacherInfo();
         string strCon = "Data Source=.;Initial Catalog=xk;Integrated Security=True";//定义数据库连接字符串
         SqlConnection sqlcon;//声明数据库连接对象
         SqlDataAdapter sqlda;//声明数据库适配器对象
         DataSet myds;//声明数据集对象
-        StudentInfo stu = new StudentInfo();
-        public SearchTeacher(string Account)
+        public SearchTea()
         {
             InitializeComponent();
-            this.stu.scode = Account;
         }
-
-        private void TextBox1_Click(object sender, EventArgs e)
+        public SearchTea(string Account)
         {
-            textBox1.Text = "";
+            InitializeComponent();
+            this.Tea.Tcode = Account;
         }
-
         private void Button1_Click(object sender, EventArgs e)
         {
             string strselect = "select * from teacher where";
@@ -83,10 +81,15 @@ namespace CAMS.Student
             }
         }
 
-        private void SearchTeacher_Load(object sender, EventArgs e)
+        private void SearchTea_Load(object sender, EventArgs e)
         {
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
+        }
+
+        private void TextBox1_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = "";
         }
     }
 }

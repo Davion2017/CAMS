@@ -181,6 +181,7 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgvCourse);
             this.Name = "FrmCourseManage";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "课程管理";
             this.Load += new System.EventHandler(this.FrmCourseManage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).EndInit();

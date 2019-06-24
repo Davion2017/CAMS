@@ -60,6 +60,12 @@
     <Compile Include="Admin\FrmAdmin.Designer.cs">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\FrmClassAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmClassAdd.Designer.cs">
+      <DependentUpon>FrmClassAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\FrmCourseChoose.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -71,6 +77,12 @@
     </Compile>
     <Compile Include="Admin\FrmCourseManage.Designer.cs">
       <DependentUpon>FrmCourseManage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin\FrmCourseSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmCourseSet.Designer.cs">
+      <DependentUpon>FrmCourseSet.cs</DependentUpon>
     </Compile>
     <Compile Include="Admin\FrmStuAdd.cs">
       <SubType>Form</SubType>
@@ -144,6 +156,8 @@
     <Compile Include="Student\FrmStudent.Designer.cs">
       <DependentUpon>FrmStudent.cs</DependentUpon>
     </Compile>
+    
+    
     <Compile Include="Student\SearchCourseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -174,20 +188,74 @@
     <Compile Include="Student\updateStuInfo.Designer.cs">
       <DependentUpon>updateStuInfo.cs</DependentUpon>
     </Compile>
+    <Compile Include="Teacher\EduPro.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teacher\EduPro.Designer.cs">
+      <DependentUpon>EduPro.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teacher\FrmTeacher.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Teacher\FrmTeacher.Designer.cs">
       <DependentUpon>FrmTeacher.cs</DependentUpon>
     </Compile>
+    <Compile Include="Teacher\PersonalInfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teacher\PersonalInfo.Designer.cs">
+      <DependentUpon>PersonalInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\Resourse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teacher\Resourse.Designer.cs">
+      <DependentUpon>Resourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\Scoring.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teacher\Scoring.Designer.cs">
+      <DependentUpon>Scoring.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\SearchCourse.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teacher\SearchCourse.Designer.cs">
+      <DependentUpon>SearchCourse.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\SearchStu.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teacher\SearchStu.Designer.cs">
+      <DependentUpon>SearchStu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\SearchTea.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teacher\SearchTea.Designer.cs">
+      <DependentUpon>SearchTea.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Teacher\UpdateTeaIfo.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Teacher\UpdateTeaIfo.Designer.cs">
+      <DependentUpon>UpdateTeaIfo.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="Admin\FrmAdmin.resx">
       <DependentUpon>FrmAdmin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FrmClassAdd.resx">
+      <DependentUpon>FrmClassAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\FrmCourseChoose.resx">
       <DependentUpon>FrmCourseChoose.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\FrmCourseManage.resx">
       <DependentUpon>FrmCourseManage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FrmCourseSet.resx">
+      <DependentUpon>FrmCourseSet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\FrmStuAdd.resx">
       <DependentUpon>FrmStuAdd.cs</DependentUpon>
@@ -222,6 +290,33 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Teacher\EduPro.resx">
+      <DependentUpon>EduPro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\FrmTeacher.resx">
+      <DependentUpon>FrmTeacher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\PersonalInfo.resx">
+      <DependentUpon>PersonalInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\Resourse.resx">
+      <DependentUpon>Resourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\Scoring.resx">
+      <DependentUpon>Scoring.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\SearchCourse.resx">
+      <DependentUpon>SearchCourse.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\SearchStu.resx">
+      <DependentUpon>SearchStu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\SearchTea.resx">
+      <DependentUpon>SearchTea.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Teacher\UpdateTeaIfo.resx">
+      <DependentUpon>UpdateTeaIfo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Student\ChooseCoursePre.resx">
       <DependentUpon>ChooseCoursePre.cs</DependentUpon>
     </EmbeddedResource>

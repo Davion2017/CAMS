@@ -46,13 +46,20 @@ namespace CAMS.Admin
         private void BtnDelete_Click(object sender, EventArgs e)
         {
             string sql = "";
-            if(DBHelper.GetExcuteNonQuery(sql) > 0)
+            try
             {
-                MessageBox.Show("删除成功！");
+                if (DBHelper.GetExcuteNonQuery(sql) > 0)
+                {
+                    MessageBox.Show("删除成功！");
+                }
+                else
+                {
+                    MessageBox.Show("删除失败！");
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("删除失败！");
+                MessageBox.Show("删除失败！！！\n" + ex.Message);
             }
         }
     }

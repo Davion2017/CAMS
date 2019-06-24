@@ -11,51 +11,44 @@ using CAMS.Admin;
 using System.Data.SqlClient;
 using System.IO;
 
-namespace CAMS.Student
+namespace CAMS.Teacher
 {
-    public partial class updateStuInfo : UserControl
+    public partial class UpdateTeaIfo : UserControl
     {
-        StudentInfo stu = new StudentInfo();
+       
+        TeacherInfo Tea = new TeacherInfo();
         SqlConnection con;
-        public updateStuInfo(string Account)
-        {
-            InitializeComponent();
-            this.stu.scode = Account;
-        }
-        public updateStuInfo()
+        public UpdateTeaIfo()
         {
             InitializeComponent();
         }
-
-        private void UpdateStuInfo_Load(object sender, EventArgs e)
+        public UpdateTeaIfo(string Account)
         {
-            string s = "select * from student where scode='" + stu.scode + "';";
+            InitializeComponent();
+            this.Tea.Tcode = Account;
+        }
+        private void UpdateTeaIfo_Load(object sender, EventArgs e)
+        {
+            string s = "select * from teacher where tcode='" + Tea.Tcode + "';";
             SqlDataReader sqlData = DBHelper.GetDataReader(s);
             sqlData.Read();
-            this.label5.Text = sqlData["name"].ToString();
-            this.label6.Text = sqlData["scode"].ToString();
-            this.label9.Text = sqlData["gender"].ToString();
-            string l = "select class.name from class,student where class.id='" + sqlData["class_id"].ToString() + "' and student.class_id = class.id";
-            SqlDataReader sqlData2 = DBHelper.GetDataReader(l);
-            sqlData2.Read();
-            this.label7.Text = sqlData2["name"].ToString();
-            string k = "select major.name from class,major where class.id='" + sqlData["class_id"].ToString() + "' and major.id = class.major_id";
-            SqlDataReader sqlData3 = DBHelper.GetDataReader(k);
-            sqlData3.Read();
-            this.label8.Text = sqlData3["name"].ToString();
-            //显示学生个人信息
-
-            
+            this.label2.Text = sqlData["name"].ToString();
+            this.label4.Text = sqlData["gender"].ToString();
+            this.label12.Text = sqlData["tcode"].ToString();
+            this.label6.Text = sqlData["degree"].ToString();
+            this.label8.Text = sqlData["title"].ToString();
+            //显示教师个人信息
         }
 
-        private void Button2_Click(object sender, EventArgs e)
+        //密码修改及验证
+        private void Button1_Click(object sender, EventArgs e)
         {
             string SqlStr = "Data Source=.;Initial Catalog=xk;Integrated Security=True";
             con = new SqlConnection(SqlStr);
-            string s = "select * from student where scode='" + stu.scode + "';";
+            string s = "select * from teacher where tcode='" + Tea.Tcode + "';";
             SqlDataReader sqlData = DBHelper.GetDataReader(s);
             sqlData.Read();
-            string strsql = "Update student set password ='" + textBox3.Text.Trim() + "' where scode='" + sqlData["scode"].ToString() + "'";
+            string strsql = "Update teacher set password ='" + textBox1.Text.Trim() + "' where tcode='" + sqlData["tcode"].ToString() + "'";
             SqlCommand cmd = new SqlCommand(strsql, con);
             try
             {
@@ -68,9 +61,8 @@ namespace CAMS.Student
                 {
                     MessageBox.Show("修改成功");
                     textBox1.Clear();
-                    textBox3.Clear();
-                }
-            }
+                }              
+                else { MessageBox.Show("修改失败"); }            }
             catch (Exception ex)
             {
                 MessageBox.Show("修改错误，错误原因:" + ex.Message);
@@ -81,36 +73,25 @@ namespace CAMS.Student
                 {
                     con.Close();
                 }
+
             }
         }
-        public static byte[] GetImageToByte(string imagePath)
-        {
-            using (FileStream files = new FileStream(imagePath, FileMode.Open))
-            {
-                byte[] imgByte = new byte[files.Length];
-                files.Read(imgByte, 0, imgByte.Length);
-                files.Close();
-                return imgByte;
-            }
-        }
-        private void Button1_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
             OpenFileDialog op = new OpenFileDialog();
             op.Filter = "jpg文件(*jpg)|*.jpg|bmp文件(*bmp)|*.bmp|gif文件(*gif)|*.gif";
             op.ShowDialog();
             string FileName = op.FileName;
-            this.textBox1.Text = FileName;
+            this.textBox2.Text = FileName;
+            pictureBox1.Image = Image.FromFile(FileName);
         }
-
         private void Button3_Click(object sender, EventArgs e)
         {
-            string Path = this.textBox1.Text;
-            //Image img = Image.FromFile(Path);
-            //this.pictureBox1.Image = img;     
-            string SqlStr = "Data Source=DESKTOP-R5GQMVG\\SQLEXPRESS;Initial Catalog=xk;Integrated Security=True";
+            string Path = this.textBox2.Text;
+            string SqlStr = "Data Source=.;Initial Catalog=xk;Integrated Security=True";
             con = new SqlConnection(SqlStr);
-            string s = Path.Replace("C:\\Users\\hp\\source\\repos\\Davion2017\\CAMS\\CAMS\\Resources", "~");
-            string strsql = "Update student set photo ='" + s + "' where scode='" + stu.scode + "'";
+            string s = Path.Replace("C:\\Users\\lenovo\\source\\repos\\Davion2017\\CAMS\\CAMS\\Resources", "~");
+            string strsql = "Update teacher set photo ='" + s + "' where tcode='" + Tea.Tcode + "'";
             SqlCommand cmd = new SqlCommand(strsql, con);
             try
             {
@@ -123,7 +104,7 @@ namespace CAMS.Student
                 {
                     MessageBox.Show("修改成功");
                     textBox1.Clear();
-                    textBox3.Clear();
+                    textBox2.Clear();
                 }
             }
             catch (Exception ex)
@@ -138,6 +119,11 @@ namespace CAMS.Student
                 }
             }
             this.button3.Text = "完成";
+          
+
+
         }
+      
     }
 }
+

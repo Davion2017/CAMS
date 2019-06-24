@@ -37,14 +37,15 @@
             this.label2 = new System.Windows.Forms.Label();
             this.labSemester = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnOrganize
             // 
             this.btnOrganize.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnOrganize.Location = new System.Drawing.Point(132, 378);
+            this.btnOrganize.Location = new System.Drawing.Point(108, 281);
             this.btnOrganize.Name = "btnOrganize";
-            this.btnOrganize.Size = new System.Drawing.Size(95, 43);
+            this.btnOrganize.Size = new System.Drawing.Size(58, 43);
             this.btnOrganize.TabIndex = 13;
             this.btnOrganize.Text = "排课";
             this.btnOrganize.UseVisualStyleBackColor = true;
@@ -53,7 +54,7 @@
             // btnOffical
             // 
             this.btnOffical.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnOffical.Location = new System.Drawing.Point(108, 300);
+            this.btnOffical.Location = new System.Drawing.Point(108, 347);
             this.btnOffical.Name = "btnOffical";
             this.btnOffical.Size = new System.Drawing.Size(145, 43);
             this.btnOffical.TabIndex = 12;
@@ -133,11 +134,23 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.Button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Font = new System.Drawing.Font("宋体", 12F);
+            this.button2.Location = new System.Drawing.Point(172, 281);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(81, 43);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "排课完成";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
+            // 
             // FrmCourseChoose
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(372, 470);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.labSemester);
             this.Controls.Add(this.label2);
@@ -148,6 +161,7 @@
             this.Controls.Add(this.labStatus);
             this.Controls.Add(this.label1);
             this.Name = "FrmCourseChoose";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "选课管理";
             this.Load += new System.EventHandler(this.FrmCourseChoose_Load);
             this.ResumeLayout(false);
@@ -166,5 +180,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label labSemester;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

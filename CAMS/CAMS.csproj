@@ -146,12 +146,8 @@
     <Compile Include="Student\FrmStudent.Designer.cs">
       <DependentUpon>FrmStudent.cs</DependentUpon>
     </Compile>
-    <Compile Include="Teacher\EduPro.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Teacher\EduPro.Designer.cs">
-      <DependentUpon>EduPro.cs</DependentUpon>
-    </Compile>
+    
+    
     <Compile Include="Student\SearchCourseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -181,6 +177,7 @@
     </Compile>
     <Compile Include="Student\updateStuInfo.Designer.cs">
       <DependentUpon>updateStuInfo.cs</DependentUpon>
+    </Compile>
     <Compile Include="Teacher\EduPro.cs">
       <SubType>UserControl</SubType>
     </Compile>

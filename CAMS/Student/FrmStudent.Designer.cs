@@ -30,6 +30,8 @@
         {
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.button7 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -37,9 +39,9 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // pictureBox1
@@ -47,11 +49,13 @@
             this.pictureBox1.Location = new System.Drawing.Point(0, 0);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(204, 215);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.pictureBox2);
             this.panel1.Controls.Add(this.button7);
             this.panel1.Controls.Add(this.button6);
             this.panel1.Controls.Add(this.button5);
@@ -61,8 +65,28 @@
             this.panel1.Controls.Add(this.button1);
             this.panel1.Location = new System.Drawing.Point(0, 221);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(204, 438);
+            this.panel1.Size = new System.Drawing.Size(204, 466);
             this.panel1.TabIndex = 1;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Location = new System.Drawing.Point(52, 408);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(100, 50);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 7;
+            this.pictureBox2.TabStop = false;
+            this.pictureBox2.Click += new System.EventHandler(this.PictureBox2_Click);
+            // 
+            // button7
+            // 
+            this.button7.Location = new System.Drawing.Point(28, 314);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(148, 34);
+            this.button7.TabIndex = 6;
+            this.button7.Text = "培养方案";
+            this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.Button7_Click);
             // 
             // button6
             // 
@@ -72,6 +96,7 @@
             this.button6.TabIndex = 5;
             this.button6.Text = "退出";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.Button6_Click);
             // 
             // button5
             // 
@@ -81,6 +106,7 @@
             this.button5.TabIndex = 4;
             this.button5.Text = "课程信息";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.Button5_Click);
             // 
             // button4
             // 
@@ -100,6 +126,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "学生信息";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.Button3_Click);
             // 
             // button2
             // 
@@ -109,6 +136,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "修改信息";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.Button2_Click);
             // 
             // button1
             // 
@@ -122,25 +150,17 @@
             // 
             // panel2
             // 
-            this.panel2.Location = new System.Drawing.Point(210, 0);
+            this.panel2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel2.Location = new System.Drawing.Point(199, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(917, 659);
+            this.panel2.Size = new System.Drawing.Size(917, 687);
             this.panel2.TabIndex = 6;
-            // 
-            // button7
-            // 
-            this.button7.Location = new System.Drawing.Point(28, 314);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(148, 34);
-            this.button7.TabIndex = 6;
-            this.button7.Text = "培养方案";
-            this.button7.UseVisualStyleBackColor = true;
             // 
             // FrmStudent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1128, 671);
+            this.ClientSize = new System.Drawing.Size(1128, 699);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.pictureBox1);
@@ -149,6 +169,7 @@
             this.Load += new System.EventHandler(this.FrmStudent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -165,5 +186,6 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.Button button7;
+        private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

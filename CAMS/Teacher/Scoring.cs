@@ -89,7 +89,7 @@ namespace CAMS.Teacher
 
         private void Scoring_Load(object sender, EventArgs e)
         {
-            string sqlstr = "server=ECHO\\SQLEXPRESS;DataBase=xk;Integrated Security=True";
+            string sqlstr = "server=.;DataBase=xk;Integrated Security=True";
             con = new SqlConnection(sqlstr);
             SqlDataAdapter com = new SqlDataAdapter("select * from class_student", con);
             DataSet mds = new DataSet();

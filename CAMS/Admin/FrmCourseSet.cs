@@ -81,13 +81,20 @@ namespace CAMS.Admin
                 " number='"+dgvCourseClass.CurrentRow.Cells[0].Value.ToString()+"'").ToString();
             string sql = "DELETE FROM course_class WHERE teacher_id='" + teacher_id + "' and course_id=" +
                 "'" + course_id + "';";
-            if(DBHelper.GetExcuteNonQuery(sql) > 0)
+            try
             {
-                MessageBox.Show("删除成功！！！");
+                if (DBHelper.GetExcuteNonQuery(sql) > 0)
+                {
+                    MessageBox.Show("删除成功！！！");
+                }
+                else
+                {
+                    MessageBox.Show("删除失败！！！");
+                }
             }
-            else
+            catch(Exception ex)
             {
-                MessageBox.Show("删除失败！！！");
+                MessageBox.Show("删除失败！！！" + ex.Message);
             }
             UpdateCourse();
         }

@@ -59,9 +59,10 @@
             // btnUpdate
             // 
             this.btnUpdate.Font = new System.Drawing.Font("宋体", 11F);
-            this.btnUpdate.Location = new System.Drawing.Point(557, 19);
+            this.btnUpdate.Location = new System.Drawing.Point(743, 24);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(75, 35);
+            this.btnUpdate.Size = new System.Drawing.Size(100, 44);
             this.btnUpdate.TabIndex = 0;
             this.btnUpdate.Text = "修改信息";
             this.btnUpdate.UseVisualStyleBackColor = true;
@@ -70,9 +71,11 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvCourse);
-            this.groupBox1.Location = new System.Drawing.Point(12, 169);
+            this.groupBox1.Location = new System.Drawing.Point(16, 211);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(880, 232);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox1.Size = new System.Drawing.Size(1173, 290);
             this.groupBox1.TabIndex = 8;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "课程列表";
@@ -101,83 +104,96 @@
             this.实践成绩,
             this.总成绩});
             this.dgvCourse.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgvCourse.Location = new System.Drawing.Point(3, 17);
+            this.dgvCourse.Location = new System.Drawing.Point(4, 22);
+            this.dgvCourse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.dgvCourse.Name = "dgvCourse";
+            this.dgvCourse.RowHeadersWidth = 51;
             this.dgvCourse.RowTemplate.Height = 23;
             this.dgvCourse.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCourse.Size = new System.Drawing.Size(874, 212);
+            this.dgvCourse.Size = new System.Drawing.Size(1165, 264);
             this.dgvCourse.TabIndex = 0;
+            this.dgvCourse.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCourse_CellContentClick);
             this.dgvCourse.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvCourse_DataBindingComplete);
             // 
             // 课程号
             // 
             this.课程号.DataPropertyName = "课程号";
             this.课程号.HeaderText = "课程号";
+            this.课程号.MinimumWidth = 6;
             this.课程号.Name = "课程号";
-            this.课程号.Width = 66;
+            this.课程号.Width = 81;
             // 
             // 课程中文名
             // 
             this.课程中文名.DataPropertyName = "课程中文名";
             this.课程中文名.HeaderText = "课程中文名";
+            this.课程中文名.MinimumWidth = 6;
             this.课程中文名.Name = "课程中文名";
-            this.课程中文名.Width = 90;
+            this.课程中文名.Width = 111;
             // 
             // 课程英文名
             // 
             this.课程英文名.DataPropertyName = "课程英文名";
             this.课程英文名.HeaderText = "课程英文名";
+            this.课程英文名.MinimumWidth = 6;
             this.课程英文名.Name = "课程英文名";
-            this.课程英文名.Width = 90;
+            this.课程英文名.Width = 111;
             // 
             // 任课教师
             // 
             this.任课教师.DataPropertyName = "任课教师";
             this.任课教师.HeaderText = "任课教师";
+            this.任课教师.MinimumWidth = 6;
             this.任课教师.Name = "任课教师";
-            this.任课教师.Width = 78;
+            this.任课教师.Width = 96;
             // 
             // 学期
             // 
             this.学期.DataPropertyName = "学期";
             this.学期.HeaderText = "学期";
+            this.学期.MinimumWidth = 6;
             this.学期.Name = "学期";
-            this.学期.Width = 54;
+            this.学期.Width = 66;
             // 
             // GPA成绩
             // 
             this.GPA成绩.DataPropertyName = "gpa成绩";
             this.GPA成绩.HeaderText = "GPA成绩";
+            this.GPA成绩.MinimumWidth = 6;
             this.GPA成绩.Name = "GPA成绩";
-            this.GPA成绩.Width = 72;
+            this.GPA成绩.Width = 90;
             // 
             // 笔试成绩
             // 
             this.笔试成绩.DataPropertyName = "笔试成绩";
             this.笔试成绩.HeaderText = "笔试成绩";
+            this.笔试成绩.MinimumWidth = 6;
             this.笔试成绩.Name = "笔试成绩";
-            this.笔试成绩.Width = 78;
+            this.笔试成绩.Width = 96;
             // 
             // 实践成绩
             // 
             this.实践成绩.DataPropertyName = "实践成绩";
             this.实践成绩.HeaderText = "实践成绩";
+            this.实践成绩.MinimumWidth = 6;
             this.实践成绩.Name = "实践成绩";
-            this.实践成绩.Width = 78;
+            this.实践成绩.Width = 96;
             // 
             // 总成绩
             // 
             this.总成绩.DataPropertyName = "总成绩";
             this.总成绩.HeaderText = "总成绩";
+            this.总成绩.MinimumWidth = 6;
             this.总成绩.Name = "总成绩";
-            this.总成绩.Width = 66;
+            this.总成绩.Width = 81;
             // 
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnSave.Location = new System.Drawing.Point(557, 96);
+            this.btnSave.Location = new System.Drawing.Point(743, 120);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnSave.Name = "btnSave";
-            this.btnSave.Size = new System.Drawing.Size(75, 36);
+            this.btnSave.Size = new System.Drawing.Size(100, 45);
             this.btnSave.TabIndex = 10;
             this.btnSave.Text = "保存";
             this.btnSave.UseVisualStyleBackColor = true;
@@ -185,9 +201,10 @@
             // 
             // btnPhoto
             // 
-            this.btnPhoto.Location = new System.Drawing.Point(160, 138);
+            this.btnPhoto.Location = new System.Drawing.Point(213, 172);
+            this.btnPhoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.btnPhoto.Name = "btnPhoto";
-            this.btnPhoto.Size = new System.Drawing.Size(62, 25);
+            this.btnPhoto.Size = new System.Drawing.Size(83, 31);
             this.btnPhoto.TabIndex = 18;
             this.btnPhoto.Text = "选择照片";
             this.btnPhoto.UseVisualStyleBackColor = true;
@@ -197,9 +214,10 @@
             // txtboxScode
             // 
             this.txtboxScode.Enabled = false;
-            this.txtboxScode.Location = new System.Drawing.Point(367, 19);
+            this.txtboxScode.Location = new System.Drawing.Point(489, 24);
+            this.txtboxScode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtboxScode.Name = "txtboxScode";
-            this.txtboxScode.Size = new System.Drawing.Size(92, 21);
+            this.txtboxScode.Size = new System.Drawing.Size(121, 25);
             this.txtboxScode.TabIndex = 13;
             this.txtboxScode.Text = "学号";
             this.txtboxScode.TextChanged += new System.EventHandler(this.TxtboxScode_TextChanged);
@@ -207,9 +225,10 @@
             // txtboxName
             // 
             this.txtboxName.Enabled = false;
-            this.txtboxName.Location = new System.Drawing.Point(272, 19);
+            this.txtboxName.Location = new System.Drawing.Point(363, 24);
+            this.txtboxName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtboxName.Name = "txtboxName";
-            this.txtboxName.Size = new System.Drawing.Size(78, 21);
+            this.txtboxName.Size = new System.Drawing.Size(103, 25);
             this.txtboxName.TabIndex = 11;
             this.txtboxName.Text = "姓名";
             this.txtboxName.TextChanged += new System.EventHandler(this.TxtboxName_TextChanged);
@@ -221,18 +240,20 @@
             this.cbboxGender.Items.AddRange(new object[] {
             "男",
             "女"});
-            this.cbboxGender.Location = new System.Drawing.Point(415, 58);
+            this.cbboxGender.Location = new System.Drawing.Point(553, 72);
+            this.cbboxGender.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbboxGender.Name = "cbboxGender";
-            this.cbboxGender.Size = new System.Drawing.Size(44, 20);
+            this.cbboxGender.Size = new System.Drawing.Size(57, 23);
             this.cbboxGender.TabIndex = 17;
             this.cbboxGender.SelectedIndexChanged += new System.EventHandler(this.CbboxGender_SelectedIndexChanged);
             // 
             // txtboxMajor
             // 
             this.txtboxMajor.Enabled = false;
-            this.txtboxMajor.Location = new System.Drawing.Point(272, 111);
+            this.txtboxMajor.Location = new System.Drawing.Point(363, 139);
+            this.txtboxMajor.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtboxMajor.Name = "txtboxMajor";
-            this.txtboxMajor.Size = new System.Drawing.Size(187, 21);
+            this.txtboxMajor.Size = new System.Drawing.Size(248, 25);
             this.txtboxMajor.TabIndex = 16;
             this.txtboxMajor.Text = "专业";
             this.txtboxMajor.TextChanged += new System.EventHandler(this.TxtboxMajor_TextChanged);
@@ -240,9 +261,10 @@
             // picboxPhoto
             // 
             this.picboxPhoto.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.picboxPhoto.Location = new System.Drawing.Point(151, 19);
+            this.picboxPhoto.Location = new System.Drawing.Point(201, 24);
+            this.picboxPhoto.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.picboxPhoto.Name = "picboxPhoto";
-            this.picboxPhoto.Size = new System.Drawing.Size(86, 113);
+            this.picboxPhoto.Size = new System.Drawing.Size(115, 141);
             this.picboxPhoto.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picboxPhoto.TabIndex = 14;
             this.picboxPhoto.TabStop = false;
@@ -252,9 +274,10 @@
             // txtPassword
             // 
             this.txtPassword.Enabled = false;
-            this.txtPassword.Location = new System.Drawing.Point(306, 58);
+            this.txtPassword.Location = new System.Drawing.Point(408, 72);
+            this.txtPassword.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.txtPassword.Name = "txtPassword";
-            this.txtPassword.Size = new System.Drawing.Size(103, 21);
+            this.txtPassword.Size = new System.Drawing.Size(136, 25);
             this.txtPassword.TabIndex = 12;
             this.txtPassword.Text = "密码";
             this.txtPassword.TextChanged += new System.EventHandler(this.TxtPassword_TextChanged);
@@ -268,9 +291,10 @@
             "17级软件工程(软件测试方向)班 ",
             "17级软件工程(软件技术方向)1班 ",
             "17级软件工程(移动终端)2班 "});
-            this.cbboxClass.Location = new System.Drawing.Point(272, 85);
+            this.cbboxClass.Location = new System.Drawing.Point(363, 106);
+            this.cbboxClass.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.cbboxClass.Name = "cbboxClass";
-            this.cbboxClass.Size = new System.Drawing.Size(187, 20);
+            this.cbboxClass.Size = new System.Drawing.Size(248, 23);
             this.cbboxClass.TabIndex = 19;
             this.cbboxClass.Text = "班级";
             this.cbboxClass.SelectedIndexChanged += new System.EventHandler(this.CbboxClass_SelectedIndexChanged);
@@ -278,18 +302,19 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(270, 61);
+            this.label1.Location = new System.Drawing.Point(360, 76);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(41, 12);
+            this.label1.Size = new System.Drawing.Size(52, 15);
             this.label1.TabIndex = 20;
             this.label1.Text = "密码：";
             this.label1.Click += new System.EventHandler(this.Label1_Click);
             // 
             // FrmStuInfo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(904, 406);
+            this.ClientSize = new System.Drawing.Size(1205, 508);
             this.Controls.Add(this.cbboxClass);
             this.Controls.Add(this.btnPhoto);
             this.Controls.Add(this.txtboxScode);
@@ -303,6 +328,7 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmStuInfo";

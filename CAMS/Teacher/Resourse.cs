@@ -28,7 +28,7 @@ namespace CAMS.Teacher
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            SqlConnection con = new SqlConnection("server=ECHO\\SQLEXPRESS;DataBase=xk;Integrated Security=True");
+            SqlConnection con = new SqlConnection("server=.;DataBase=xk;Integrated Security=True");
             string strsql = "insert into course_resource(course_id,name,resource_url) " +
                 "values('" + textBox1.Text.Trim() + "', '" + textBox2.Text.Trim() + "', '" + textBox3.Text.Trim() + "')";
             SqlCommand cmd = new SqlCommand(strsql, con);
@@ -63,7 +63,7 @@ namespace CAMS.Teacher
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlcon = new SqlConnection("Data Source=ECHO\\SQLEXPRESS;Initial Catalog=xk;Integrated Security=True");
+            SqlConnection sqlcon = new SqlConnection("Data Source=.;Initial Catalog=xk;Integrated Security=True");
             if (sqlcon.State == ConnectionState.Closed)
             {
                 sqlcon.Open();

@@ -50,7 +50,7 @@ namespace CAMS.Student
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            string SqlStr = "Data Source=DESKTOP-R5GQMVG\\SQLEXPRESS;Initial Catalog=xk;Integrated Security=True";
+            string SqlStr = "Data Source=.;Initial Catalog=xk;Integrated Security=True";
             con = new SqlConnection(SqlStr);
             string s = "select * from student where scode='" + stu.scode + "';";
             SqlDataReader sqlData = DBHelper.GetDataReader(s);

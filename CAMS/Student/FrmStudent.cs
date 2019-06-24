@@ -91,5 +91,12 @@ namespace CAMS.Student
             FrmLogin frmLogin = new FrmLogin();
             frmLogin.Show();
         }
+
+        private void Button8_Click(object sender, EventArgs e)
+        {
+            ChooseCoursePre choosecoursepre = new ChooseCoursePre(Account);
+            this.panel2.Controls.Clear();
+            this.panel2.Controls.Add(choosecoursepre);
+        }
     }
 }

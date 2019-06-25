@@ -40,6 +40,8 @@
             this.rbtnTeacher = new System.Windows.Forms.RadioButton();
             this.btnSubmit = new System.Windows.Forms.Button();
             this.btnExit = new System.Windows.Forms.Button();
+            this.cbxSkins = new System.Windows.Forms.ComboBox();
+            this.btnSkins = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // skinEngine1
@@ -169,11 +171,34 @@
             this.btnExit.UseVisualStyleBackColor = true;
             this.btnExit.Click += new System.EventHandler(this.BtnExit_Click);
             // 
+            // cbxSkins
+            // 
+            this.cbxSkins.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxSkins.Font = new System.Drawing.Font("宋体", 14F);
+            this.cbxSkins.FormattingEnabled = true;
+            this.cbxSkins.Location = new System.Drawing.Point(672, 378);
+            this.cbxSkins.Name = "cbxSkins";
+            this.cbxSkins.Size = new System.Drawing.Size(116, 27);
+            this.cbxSkins.TabIndex = 11;
+            // 
+            // btnSkins
+            // 
+            this.btnSkins.Font = new System.Drawing.Font("宋体", 14F);
+            this.btnSkins.Location = new System.Drawing.Point(672, 411);
+            this.btnSkins.Name = "btnSkins";
+            this.btnSkins.Size = new System.Drawing.Size(116, 28);
+            this.btnSkins.TabIndex = 12;
+            this.btnSkins.Text = "换肤";
+            this.btnSkins.UseVisualStyleBackColor = true;
+            this.btnSkins.Click += new System.EventHandler(this.BtnSkins_Click);
+            // 
             // FrmLogin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnSkins);
+            this.Controls.Add(this.cbxSkins);
             this.Controls.Add(this.btnExit);
             this.Controls.Add(this.btnSubmit);
             this.Controls.Add(this.rbtnTeacher);
@@ -208,6 +233,8 @@
         private System.Windows.Forms.RadioButton rbtnTeacher;
         private System.Windows.Forms.Button btnSubmit;
         private System.Windows.Forms.Button btnExit;
+        private System.Windows.Forms.ComboBox cbxSkins;
+        private System.Windows.Forms.Button btnSkins;
     }
 }
 

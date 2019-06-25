@@ -21,6 +21,7 @@ namespace CAMS
         {
             InitializeComponent();
             skinEngine1.SkinFile = Application.StartupPath.Replace("bin\\Debug", "") + @"/Resources/Skins/mp10.ssk";
+            SkinInit();
         }
 
         private void FrmMain_Activated(object sender, EventArgs e)
@@ -124,6 +125,21 @@ namespace CAMS
             {
                 txtAccount.ReadOnly = false;
             }
+        }
+
+        private void SkinInit()
+        {
+            this.cbxSkins.Items.Add("Calmness.ssk");
+            this.cbxSkins.Items.Add("mp10.ssk");
+            this.cbxSkins.Items.Add("MSN.ssk");
+            this.cbxSkins.Items.Add("office2007.ssk");
+            this.cbxSkins.SelectedIndex = 0;
+        }
+
+        private void BtnSkins_Click(object sender, EventArgs e)
+        {
+            string skin = this.cbxSkins.SelectedItem.ToString();
+            skinEngine1.SkinFile = Application.StartupPath.Replace("bin\\Debug", "") + @"/Resources/Skins/" + skin;
         }
     }
 }

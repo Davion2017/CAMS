@@ -128,6 +128,7 @@
     <Compile Include="Admin\FrmStuManage.Designer.cs">
       <DependentUpon>FrmStuManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="YRhelper.cs" />
     <Compile Include="Common\Style.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="FrmLogin.cs">
@@ -156,8 +157,6 @@
     <Compile Include="Student\FrmStudent.Designer.cs">
       <DependentUpon>FrmStudent.cs</DependentUpon>
     </Compile>
-    
-    
     <Compile Include="Student\SearchCourseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>

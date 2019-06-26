@@ -14,10 +14,6 @@ namespace CAMS.Student
 {
     public partial class SearchCourseInfo : UserControl
     {
-        string strCon = "Data Source=.;Initial Catalog=xk;Integrated Security=True";//定义数据库连接字符串
-        SqlConnection sqlcon;//声明数据库连接对象
-        SqlDataAdapter sqlda;//声明数据库适配器对象
-        DataSet myds;//声明数据集对象
         StudentInfo stu = new StudentInfo();
         public SearchCourseInfo()
         {
@@ -80,11 +76,7 @@ namespace CAMS.Student
             }
             if (!string.IsNullOrWhiteSpace(textBox1.Text.Trim()))
             {
-                sqlcon = new SqlConnection(strCon);//实例化数据库连接对象
-                sqlda = new SqlDataAdapter(strselect, sqlcon);//实例化数据库桥接器对象
-                myds = new DataSet();//实例化数据集对象
-                sqlda.Fill(myds);//填充数据集
-                dataGridView1.DataSource = myds.Tables[0];
+                dataGridView1.DataSource = YRHelper.GetFillData(strselect);
             }
             else
             {

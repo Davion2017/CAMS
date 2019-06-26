@@ -27,10 +27,13 @@ namespace CAMS.Student
         private void FrmStudent_Load(object sender, EventArgs e)
         {
             string sqlphoto = "select photo from student where scode = '" + this.Stu.scode + "';";
-            SqlDataReader sqlData = DBHelper.GetDataReader(sqlphoto);
+            SqlDataReader sqlData = YRHelper.GetDataReader(sqlphoto);
             sqlData.Read();
             string s = Application.StartupPath.Replace("bin\\Debug", "") + sqlData["photo"].ToString().Replace("~", "Resources");
-            pictureBox1.Image = Image.FromFile(s);
+            FileStream fs = new FileStream(s, FileMode.Open, FileAccess.Read);
+            pictureBox1.Image = Image.FromStream(fs);
+            fs.Close();
+            fs.Dispose();
             pictureBox2.Image = Image.FromFile(Application.StartupPath.Replace("bin\\Debug", "") + "Resources\\images\\student\\timg.jpg");
         }
 
@@ -58,7 +61,7 @@ namespace CAMS.Student
         private void PictureBox2_Click(object sender, EventArgs e)
         {
             string sqlphoto = "select photo from student where scode = '" + this.Stu.scode + "';";
-            SqlDataReader sqlData = DBHelper.GetDataReader(sqlphoto);
+            SqlDataReader sqlData = YRHelper.GetDataReader(sqlphoto);
             sqlData.Read();
             string s = Application.StartupPath.Replace("bin\\Debug", "") + sqlData["photo"].ToString().Replace("~", "Resources");
             pictureBox1.Image = Image.FromFile(s);
@@ -94,9 +97,22 @@ namespace CAMS.Student
 
         private void Button8_Click(object sender, EventArgs e)
         {
-            ChooseCoursePre choosecoursepre = new ChooseCoursePre(Account);
-            this.panel2.Controls.Clear();
-            this.panel2.Controls.Add(choosecoursepre);
+            string sqlstatus1 = "select status from course_status where name = '预选' ;";
+            SqlDataReader sqlData1 = YRHelper.GetDataReader(sqlstatus1);
+            sqlData1.Read();
+            string sqlstatus2 = "select status from course_status where name = '正选';";
+            SqlDataReader sqlData2 = YRHelper.GetDataReader(sqlstatus2);
+            sqlData2.Read();
+            if (sqlData1["status"].ToString() == "1")
+            {
+                ChooseCoursePre choosecoursepre = new ChooseCoursePre(Account);
+                this.panel2.Controls.Clear();
+                this.panel2.Controls.Add(choosecoursepre);
+            }
+            else
+            {
+                MessageBox.Show("选课系统未开启");
+            }
         }
     }
 }

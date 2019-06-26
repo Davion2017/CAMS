@@ -35,11 +35,6 @@ namespace CAMS.Teacher
                 "FROM\n" +
                 "teacher\n" +
                 "WHERE ";
-            string strselect1 = " SELECT\n" +
-                "teacher.introduction 个人介绍 \n" +
-                 "FROM\n" +
-                "teacher\n" +
-                "WHERE ";
             if (comboBox2.Text == "模糊")
             {
                 if (comboBox1.Text == "工号")
@@ -47,7 +42,8 @@ namespace CAMS.Teacher
                     if (!string.IsNullOrWhiteSpace(textBox1.Text.Trim()))
                     {
                         strselect += " tcode like '%" + textBox1.Text.Trim() + "%'";
-                        strselect1 += " tcode like '%" + textBox1.Text.Trim() + "%'";
+                        
+                        
                     }
                 }
                 else
@@ -55,7 +51,8 @@ namespace CAMS.Teacher
                     if (!string.IsNullOrWhiteSpace(textBox1.Text.Trim()))
                     {
                         strselect += " name like '%" + textBox1.Text.Trim() + "%'";
-                        strselect1 += " name like '%" + textBox1.Text.Trim() + "%'";
+                       
+                       
                     }
                 }
             }
@@ -66,7 +63,8 @@ namespace CAMS.Teacher
                     if (!string.IsNullOrWhiteSpace(textBox1.Text.Trim()))
                     {
                         strselect += " tcode = '" + textBox1.Text.Trim() + "'";
-                        strselect1 += " tcode = '" + textBox1.Text.Trim() + "'";
+                        
+                        
                     }
                 }
                 else
@@ -74,21 +72,45 @@ namespace CAMS.Teacher
                     if (!string.IsNullOrWhiteSpace(textBox1.Text.Trim()))
                     {
                         strselect += " name = '" + textBox1.Text.Trim() + "'";
-                        strselect1 += "  name = '" + textBox1.Text.Trim() + "'";
+                        
+                        
                     }
                 }
-
             }
-            if (!string.IsNullOrWhiteSpace(textBox1.Text.Trim()))
+           if (!string.IsNullOrWhiteSpace(textBox1.Text.Trim()))
             {
+                
                 dataGridView1.DataSource = Dyy.GetFillData(strselect);
-                richTextBox1.Text = strselect1["teacher.introduction"].ToString();
+
             }
             else
             {
                 MessageBox.Show("不可为空");
                 textBox1.Clear();
             }
+            string intro = "select * from teacher where";
+            if (comboBox1.Text == "姓名")
+            {
+                intro += " name = '" + textBox1.Text.Trim() + "' ";
+            }
+            else
+            {
+                intro += " tcode= '" + textBox1.Text.Trim() + "'";
+            }
+
+            SqlDataReader reader = Dyy.GetDataReader(intro);
+            if (reader.HasRows)
+            {
+                reader.Read();
+                richTextBox1.Text = reader["introduction"].ToString();
+            }
+            else
+            {
+                richTextBox1.Clear();
+                MessageBox.Show("查询条件模糊，个人简介失败");
+            }
+
+
         }
 
         private void SearchTea_Load(object sender, EventArgs e)

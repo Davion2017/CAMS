@@ -45,7 +45,7 @@ namespace CAMS.Teacher
         //密码修改及验证
         private void Button1_Click(object sender, EventArgs e)
         {
-            string SqlStr = "Data Source=.;Initial Catalog=xk;Integrated Security=True";
+            string SqlStr = "Data Source=ECHO\\SQLEXPRESS;Initial Catalog=xk;Integrated Security=True";
             con = new SqlConnection(SqlStr);
             string s = "select * from teacher where tcode='" + Tea.Tcode + "';";
             SqlDataReader sqlData = DBHelper.GetDataReader(s);

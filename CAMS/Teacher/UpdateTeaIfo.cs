@@ -18,6 +18,8 @@ namespace CAMS.Teacher
        
         TeacherInfo Tea = new TeacherInfo();
         SqlConnection con;
+        string newPath;
+        string picPath;
         public UpdateTeaIfo()
         {
             InitializeComponent();
@@ -80,50 +82,41 @@ namespace CAMS.Teacher
         {
             OpenFileDialog op = new OpenFileDialog();
             op.Filter = "jpg文件(*jpg)|*.jpg|bmp文件(*bmp)|*.bmp|gif文件(*gif)|*.gif";
-            op.ShowDialog();
-            string FileName = op.FileName;
-            this.textBox2.Text = FileName;
-            pictureBox1.Image = Image.FromFile(FileName);
+            if (op.ShowDialog() == DialogResult.OK)
+            {
+                this.newPath = Path.GetFullPath(op.FileName);
+                FileStream fs = new FileStream(this.newPath, FileMode.Open, FileAccess.Read);
+                pictureBox1.Image = Image.FromStream(fs);
+                textBox2.Text = this.newPath;
+                fs.Close();
+                fs.Dispose();
+            }
+
         }
         private void Button3_Click(object sender, EventArgs e)
         {
-            string Path = this.textBox2.Text;
-            string SqlStr = "Data Source=.;Initial Catalog=xk;Integrated Security=True";
-            con = new SqlConnection(SqlStr);
-            string s = Path.Replace("C:\\Users\\lenovo\\source\\repos\\Davion2017\\CAMS\\CAMS\\Resources", "~");
-            string strsql = "Update teacher set photo ='" + s + "' where tcode='" + Tea.Tcode + "'";
-            SqlCommand cmd = new SqlCommand(strsql, con);
+            string sqlphoto = "select photo from teacher where tcode = '" + this.Tea.Tcode + "';";
+            SqlDataReader sqlData = Dyy.GetDataReader(sqlphoto);
+            sqlData.Read();
+            this.picPath = Application.StartupPath.Replace("bin\\Debug", "") + sqlData["photo"].ToString().Replace("~", "Resources");
+            FileStream fs = new FileStream(this.picPath, FileMode.Open, FileAccess.Read);
+            fs.Close();
+            fs.Dispose();
             try
             {
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-                int num = cmd.ExecuteNonQuery();
-                if (num > 0)
-                {
-                    MessageBox.Show("修改成功");
-                    textBox1.Clear();
-                    textBox2.Clear();
-                }
+                pictureBox1.Image = Image.FromStream(fs);
             }
-            catch (Exception ex)
+            catch { }
+            if (this.newPath != this.picPath && newPath != null)
             {
-                MessageBox.Show("修改错误，错误原因:" + ex.Message);
+                File.Copy(newPath, picPath, true);
+                MessageBox.Show("修改成功！");
             }
-            finally
-            {
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
-            }
-            this.button3.Text = "完成";
-          
+            else { MessageBox.Show("对不起，修改失败！"); }
 
 
         }
-      
+
     }
 }
 

@@ -172,7 +172,6 @@ namespace CAMS.Admin
             string sqlInque = "select * from stu_cla_maj where 学号 = '" + this.stu.scode + "' ;";
             SqlDataReader sqlData = DBHelper.GetDataReader(sqlInque);
             sqlData.Read();
-
             txtboxScode.Text = this.stu.scode;
             this.stu.name = txtboxName.Text = sqlData[2].ToString();
             this.stu.password = txtPassword.Text = sqlData[3].ToString();

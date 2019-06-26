@@ -152,7 +152,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(149, 373);
+            this.button1.Location = new System.Drawing.Point(558, 264);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 41);
             this.button1.TabIndex = 12;
@@ -163,16 +163,16 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(524, 150);
+            this.dataGridView1.Location = new System.Drawing.Point(40, 344);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(487, 150);
+            this.dataGridView1.Size = new System.Drawing.Size(927, 150);
             this.dataGridView1.TabIndex = 13;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(417, 373);
+            this.button2.Location = new System.Drawing.Point(770, 264);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(82, 41);
             this.button2.TabIndex = 14;
@@ -201,7 +201,6 @@
             this.Controls.Add(this.label1);
             this.Name = "Scoring";
             this.Size = new System.Drawing.Size(1218, 555);
-            this.Load += new System.EventHandler(this.Scoring_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

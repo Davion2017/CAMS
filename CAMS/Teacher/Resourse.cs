@@ -63,7 +63,7 @@ namespace CAMS.Teacher
 
         private void Button2_Click(object sender, EventArgs e)
         {
-            SqlConnection sqlcon = new SqlConnection("Data Source=.;Initial Catalog=xk;Integrated Security=True");
+            SqlConnection sqlcon = new SqlConnection("Data Source=ECHO\\SQLEXPRESS;Initial Catalog=xk;Integrated Security=True");
             if (sqlcon.State == ConnectionState.Closed)
             {
                 sqlcon.Open();
@@ -73,7 +73,7 @@ namespace CAMS.Teacher
             if (da.HasRows)
             {
                 da.Close();
-                SqlDataAdapter sqlda = new SqlDataAdapter("select * from course_resource where name like '%" + textBox4.Text.Trim() + "%'",
+                SqlDataAdapter sqlda = new SqlDataAdapter("select course_resource.name 资源名,course_resource.resource_url 资源链接 from course_resource where name like '%" + textBox4.Text.Trim() + "%'",
                 sqlcon);
                 DataSet myds = new DataSet();
                 sqlda.Fill(myds);

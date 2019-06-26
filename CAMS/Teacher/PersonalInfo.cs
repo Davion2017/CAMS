@@ -29,7 +29,7 @@ namespace CAMS.Teacher
         private void PersonalInfo_Load(object sender, EventArgs e)
         {
             string s = "select * from teacher where tcode='" +Tea.Tcode + "';";
-            SqlDataReader sqlData = DBHelper.GetDataReader(s);
+            SqlDataReader sqlData = Dyy.GetDataReader(s);
             sqlData.Read();
             this.label2.Text = sqlData["name"].ToString();
             this.label4.Text = sqlData["gender"].ToString();

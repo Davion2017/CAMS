@@ -29,11 +29,14 @@ namespace CAMS.Teacher
         private void FrmTeacher_Load(object sender, EventArgs e)
         {
             string sqlphoto = "select photo from teacher where tcode = '" + this.Tea.Tcode + "';";
-            SqlDataReader sqlData = DBHelper.GetDataReader(sqlphoto);
+            SqlDataReader sqlData = Dyy.GetDataReader(sqlphoto);
             sqlData.Read();
             string s = Application.StartupPath.Replace("bin\\Debug", "") + sqlData["photo"].ToString().Replace("~", "Resources");
-            this.pictureBox1.Image = Image.FromFile(s);
-            this.pictureBox2.Image = Image.FromFile(Application.StartupPath.Replace("bin\\Debug","") + "Resources\\images\\teacher\\999.jpg");
+            FileStream fs = new FileStream(s, FileMode.Open, FileAccess.Read);
+            pictureBox1.Image = Image.FromStream(fs);
+            fs.Close();
+            fs.Dispose();
+            pictureBox2.Image = Image.FromFile(Application.StartupPath.Replace("bin\\Debug", "") + "Resources\\images\\teacher\\999.jpg");
 
         }
 

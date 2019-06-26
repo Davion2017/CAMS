@@ -23,7 +23,6 @@ namespace CAMS.Teacher
                 string1 = value;
             }
         }
-        SqlConnection con;
         public Scoring()
         {
             InitializeComponent();
@@ -41,15 +40,11 @@ namespace CAMS.Teacher
                 "paper_score='" + textBox4.Text.Trim() + "',practice_score='" + textBox5.Text.Trim() + "'," +
                 "score='" + textBox6.Text.Trim() + "' " +
                 "where course_class_id='" + textBox1.Text.Trim() + "' and student_id='" + textBox2.Text.Trim() + "'";
-            SqlCommand cmd = new SqlCommand(strsql, con);
+          
             try
             {
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-                int num = cmd.ExecuteNonQuery();
-                if (num > 0)
+
+                if (Dyy.GetExcuteNonQuery(strsql) > 0)
                 {
                     MessageBox.Show("评定成功");
                     textBox1.Clear();
@@ -76,43 +71,44 @@ namespace CAMS.Teacher
             }
             finally
             {
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
+                string sqlstr = " SELECT \n" +
+                             " class_student.course_class_id 课程ID, \n" +
+                             " class_student.student_id 学生ID, \n" +
+                             " class_student.gpa_score 平时表现成绩, \n" +
+                             " class_student.paper_score 理论考试成绩, \n" +
+                             " class_student.practice_score 实践考核成绩, \n" +
+                             " class_student.score 总评成绩 \n" +
+                             " FROM class_student";
+                dataGridView1.DataSource = Dyy.GetFillData(sqlstr);
             }
-            SqlDataAdapter com = new SqlDataAdapter("select * from class_student", con);
-            DataSet mds = new DataSet();
-            com.Fill(mds);
-            dataGridView1.DataSource = mds.Tables[0];
+            
+           
         }
 
         private void Scoring_Load(object sender, EventArgs e)
         {
-            string sqlstr = "server=.;DataBase=xk;Integrated Security=True";
-            con = new SqlConnection(sqlstr);
-            SqlDataAdapter com = new SqlDataAdapter("select * from class_student", con);
-            DataSet mds = new DataSet();
-            com.Fill(mds);
-            dataGridView1.DataSource = mds.Tables[0];
+            string sqlstr = " SELECT \n"+
+                             " class_student.course_class_id 课程ID, \n"+
+                             " class_student.student_id 学生ID, \n"+
+                             " class_student.gpa_score 平时表现成绩, \n"+
+                             " class_student.paper_score 理论考试成绩, \n"+
+                             " class_student.practice_score 实践考核成绩, \n"+
+                             " class_student.score 总评成绩 \n"+
+                             " FROM class_student";
+            dataGridView1.DataSource = Dyy.GetFillData(sqlstr);
         }
         //若已经评定的成绩有错，可由重做按钮进行修改
         private void Button2_Click(object sender, EventArgs e)
-        {string strsql= "Update" +
+        {
+            string strsql= "Update" +
                 " class_student set gpa_score=NULL," +
                 "paper_score=NULL,practice_score=NULL," +
                 "score=NULL " +
-                "where course_class_id='" + textBox1.Text.Trim() + "' and student_id='" + textBox2.Text.Trim() + "'";
-     
-            SqlCommand cmd = new SqlCommand(strsql, con);
+                "where course_class_id='" + textBox1.Text.Trim() + "' and student_id='" + textBox2.Text.Trim() + "'";            
             try
             {
-                if (con.State == ConnectionState.Closed)
-                {
-                    con.Open();
-                }
-                int num = cmd.ExecuteNonQuery();
-                if (num > 0)
+             
+                if (Dyy.GetExcuteNonQuery(strsql)>0)
                 {
                     MessageBox.Show("修改成功，请重新评定");
                     textBox1.Clear();
@@ -131,11 +127,17 @@ namespace CAMS.Teacher
             }
             finally
             {
-                if (con.State == ConnectionState.Open)
-                {
-                    con.Close();
-                }
+                string sqlstr = " SELECT \n" +
+                             " class_student.course_class_id 课程ID, \n" +
+                             " class_student.student_id 学生ID, \n" +
+                             " class_student.gpa_score 平时表现成绩, \n" +
+                             " class_student.paper_score 理论考试成绩, \n" +
+                             " class_student.practice_score 实践考核成绩, \n" +
+                             " class_student.score 总评成绩 \n" +
+                             " FROM class_student";
+                dataGridView1.DataSource = Dyy.GetFillData(sqlstr);
             }
+           
         }
     }
 }

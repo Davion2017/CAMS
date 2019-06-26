@@ -39,7 +39,6 @@
             this.tchour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tlhour = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.semester = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnUpdate = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
             this.btnAdd = new System.Windows.Forms.Button();
             this.linkCourse = new System.Windows.Forms.LinkLabel();
@@ -65,6 +64,7 @@
             this.dgvCourse.RowTemplate.Height = 23;
             this.dgvCourse.Size = new System.Drawing.Size(850, 273);
             this.dgvCourse.TabIndex = 0;
+            this.dgvCourse.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.DgvCourse_CellEnter);
             this.dgvCourse.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DgvCourse_DataBindingComplete);
             // 
             // name
@@ -127,20 +127,10 @@
             this.semester.HeaderText = "开课时间";
             this.semester.Name = "semester";
             // 
-            // btnUpdate
-            // 
-            this.btnUpdate.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnUpdate.Location = new System.Drawing.Point(209, 304);
-            this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(108, 43);
-            this.btnUpdate.TabIndex = 1;
-            this.btnUpdate.Text = "修改课程";
-            this.btnUpdate.UseVisualStyleBackColor = true;
-            // 
             // btnDelete
             // 
             this.btnDelete.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnDelete.Location = new System.Drawing.Point(450, 304);
+            this.btnDelete.Location = new System.Drawing.Point(220, 304);
             this.btnDelete.Name = "btnDelete";
             this.btnDelete.Size = new System.Drawing.Size(108, 43);
             this.btnDelete.TabIndex = 2;
@@ -151,18 +141,19 @@
             // btnAdd
             // 
             this.btnAdd.Font = new System.Drawing.Font("宋体", 12F);
-            this.btnAdd.Location = new System.Drawing.Point(671, 304);
+            this.btnAdd.Location = new System.Drawing.Point(530, 304);
             this.btnAdd.Name = "btnAdd";
             this.btnAdd.Size = new System.Drawing.Size(108, 43);
             this.btnAdd.TabIndex = 3;
             this.btnAdd.Text = "增加课程";
             this.btnAdd.UseVisualStyleBackColor = true;
+            this.btnAdd.Click += new System.EventHandler(this.BtnAdd_Click);
             // 
             // linkCourse
             // 
             this.linkCourse.AutoSize = true;
             this.linkCourse.Font = new System.Drawing.Font("宋体", 14F);
-            this.linkCourse.Location = new System.Drawing.Point(21, 321);
+            this.linkCourse.Location = new System.Drawing.Point(381, 321);
             this.linkCourse.Name = "linkCourse";
             this.linkCourse.Size = new System.Drawing.Size(85, 19);
             this.linkCourse.TabIndex = 9;
@@ -178,11 +169,16 @@
             this.Controls.Add(this.linkCourse);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.btnDelete);
-            this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.dgvCourse);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmCourseManage";
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "课程管理";
+            this.TopMost = true;
+            this.Activated += new System.EventHandler(this.FrmCourseManage_Activated);
             this.Load += new System.EventHandler(this.FrmCourseManage_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCourse)).EndInit();
             this.ResumeLayout(false);
@@ -203,7 +199,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn tchour;
         private System.Windows.Forms.DataGridViewTextBoxColumn tlhour;
         private System.Windows.Forms.DataGridViewTextBoxColumn semester;
-        private System.Windows.Forms.Button btnUpdate;
         private System.Windows.Forms.Button btnDelete;
         private System.Windows.Forms.Button btnAdd;
         private System.Windows.Forms.LinkLabel linkCourse;

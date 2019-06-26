@@ -66,6 +66,12 @@
     <Compile Include="Admin\FrmClassAdd.Designer.cs">
       <DependentUpon>FrmClassAdd.cs</DependentUpon>
     </Compile>
+    <Compile Include="Admin\FrmCourseAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin\FrmCourseAdd.Designer.cs">
+      <DependentUpon>FrmCourseAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="Admin\FrmCourseChoose.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -156,8 +162,6 @@
     <Compile Include="Student\FrmStudent.Designer.cs">
       <DependentUpon>FrmStudent.cs</DependentUpon>
     </Compile>
-    
-    
     <Compile Include="Student\SearchCourseInfo.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -247,6 +251,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\FrmClassAdd.resx">
       <DependentUpon>FrmClassAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin\FrmCourseAdd.resx">
+      <DependentUpon>FrmCourseAdd.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Admin\FrmCourseChoose.resx">
       <DependentUpon>FrmCourseChoose.cs</DependentUpon>

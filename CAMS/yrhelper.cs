@@ -30,7 +30,7 @@ public class YRHelper : IDisposable
         get
         {
             //constr = System.Configuration.ConfigurationManager.ConnectionStrings["xkcon"].ToString();
-            constr = "Data Source=DESKTOP-R5GQMVG\\SQLEXPRESS;Initial Catalog=xk;Integrated Security=True";
+            constr = "Data Source=.;Initial Catalog=xk;Integrated Security=True";
             //上面这个必须添加引用System.configuartion
             conn = new SqlConnection(constr);
             //DotNet默认打开数据库连接池

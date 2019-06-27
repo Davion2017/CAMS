@@ -43,6 +43,7 @@ namespace CAMS.Admin
 
         private void BtnNewClass_Click(object sender, EventArgs e)
         {
+            
             if(CheckNewClass())
             {
                 string number = dgvPlanCourse.CurrentRow.Cells[0].Value.ToString();
@@ -64,8 +65,12 @@ namespace CAMS.Admin
             //课程预选时的总人数
             int needSize = Convert.ToInt32(dgvPlanCourse.CurrentRow.Cells[2].Value.ToString());
             //课程已开班的容量
-            int currentSize = DBHelper.ExecuteScalar<int>(sql);
-            if(currentSize >= needSize)
+
+            int currentSize = 0;
+            try
+            { DBHelper.ExecuteScalar<int>(sql); }
+            catch { }
+            if (currentSize >= needSize)
             {
                 MessageBox.Show("该课程已有足够容量，无需再添加班级！");
                 return false;

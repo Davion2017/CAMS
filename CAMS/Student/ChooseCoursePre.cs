@@ -94,13 +94,23 @@ namespace CAMS.Student
                     sqlData3.Read();
                     if (!sqlData3.HasRows)
                     {
-                        if (YRHelper.GetExcuteNonQuery(stradd) > 0)
+                        string sqlstr2 = "Select * from plan_study_course where course_id = '" + cno + "' and course_id in(Select course_id from curriculum where semester = '" + sqlData["id"] + "')";
+                        SqlDataReader sqlData4 = YRHelper.GetDataReader(sqlstr2);
+                        sqlData4.Read();
+                        if (sqlData4.HasRows)
                         {
-                            MessageBox.Show("增选成功");
+                            if (YRHelper.GetExcuteNonQuery(stradd) > 0)
+                            {
+                                MessageBox.Show("增选成功");
+                            }
+                            else
+                            {
+                                MessageBox.Show("增选失败");
+                            }
                         }
                         else
                         {
-                            MessageBox.Show("增选失败");
+                            MessageBox.Show("该学期不可选此门课");
                         }
                     }
                     else

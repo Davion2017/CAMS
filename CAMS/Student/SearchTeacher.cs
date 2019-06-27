@@ -14,10 +14,6 @@ namespace CAMS.Student
 {
     public partial class SearchTeacher : UserControl
     {
-        string strCon = "Data Source=.;Initial Catalog=xk;Integrated Security=True";//定义数据库连接字符串
-        SqlConnection sqlcon;//声明数据库连接对象
-        SqlDataAdapter sqlda;//声明数据库适配器对象
-        DataSet myds;//声明数据集对象
         StudentInfo stu = new StudentInfo();
         public SearchTeacher(string Account)
         {
@@ -32,7 +28,15 @@ namespace CAMS.Student
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            string strselect = "select * from teacher where";
+            string strselect = " SELECT\n" +
+                "teacher.name 姓名,\n" +
+                "teacher.tcode 工号,\n" +
+                "teacher.gender 性别,\n" +
+                "teacher.degree 学位,\n" +
+                "teacher.title 职称 \n" +
+                "FROM\n" +
+                "teacher\n" +
+                "WHERE ";
             if (comboBox2.Text == "模糊")
             {
                 if (comboBox1.Text == "工号")
@@ -70,17 +74,35 @@ namespace CAMS.Student
             }
             if (!string.IsNullOrWhiteSpace(textBox1.Text.Trim()))
             {
-                sqlcon = new SqlConnection(strCon);//实例化数据库连接对象
-                sqlda = new SqlDataAdapter(strselect, sqlcon);//实例化数据库桥接器对象
-                myds = new DataSet();//实例化数据集对象
-                sqlda.Fill(myds);//填充数据集
-                dataGridView1.DataSource = myds.Tables[0];
+                dataGridView1.DataSource = YRHelper.GetFillData(strselect);
             }
             else
             {
                 MessageBox.Show("不可为空");
                 textBox1.Clear();
             }
+            string intro = "select * from teacher where";
+            if (comboBox1.Text == "姓名")
+            {
+                intro += " name = '" + textBox1.Text.Trim() + "' ";
+            }
+            else
+            {
+                intro += " tcode= '" + textBox1.Text.Trim() + "'";
+            }
+
+            SqlDataReader reader = YRHelper.GetDataReader(intro);
+            if (reader.HasRows)
+            {
+                reader.Read();
+                richTextBox1.Text = reader["introduction"].ToString();
+            }
+            else
+            {
+                richTextBox1.Clear();
+                MessageBox.Show("查询条件模糊，个人简介失败");
+            }
+
         }
 
         private void SearchTeacher_Load(object sender, EventArgs e)

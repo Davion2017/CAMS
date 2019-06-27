@@ -14,7 +14,7 @@ namespace CAMS.Student
 {
     public partial class SearchCourseInfo : UserControl
     {
-        StudentInfo stu = new StudentInfo();
+        readonly StudentInfo stu = new StudentInfo();
         public SearchCourseInfo()
         {
             InitializeComponent();
@@ -38,7 +38,17 @@ namespace CAMS.Student
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            string strselect = "select * from course where";
+            string strselect = "SELECT \n" +
+                               " course.number 课程号, \n" +
+                               " course.cname 课程中文名, \n" +
+                               " course.ename 课程英文名, \n" +
+                               " course.score 学分, \n" +
+                               " course.chour 周理论学时, \n" +
+                               " course.lhour 周实验学时, \n" +
+                               " course.tchour 理论总学时, \n" +
+                               " course.tlhour 实验总学时 \n" +
+                               " FROM course \n" +
+                               " WHERE";
             if (comboBox2.Text == "模糊查询")
             {
                 if (comboBox1.Text == "课程号")

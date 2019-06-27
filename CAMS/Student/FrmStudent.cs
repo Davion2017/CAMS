@@ -109,6 +109,12 @@ namespace CAMS.Student
                 this.panel2.Controls.Clear();
                 this.panel2.Controls.Add(choosecoursepre);
             }
+            else if(sqlData2["status"].ToString() == "1")
+            {
+                ChooseCoursePost choosecoursepost = new ChooseCoursePost(Account);
+                this.panel2.Controls.Clear();
+                this.panel2.Controls.Add(choosecoursepost);
+            }
             else
             {
                 MessageBox.Show("选课系统未开启");

@@ -14,11 +14,7 @@ namespace CAMS.Student
 {
     public partial class SearchCourseInfo : UserControl
     {
-        string strCon = "Data Source=.;Initial Catalog=xk;Integrated Security=True";//定义数据库连接字符串
-        SqlConnection sqlcon;//声明数据库连接对象
-        SqlDataAdapter sqlda;//声明数据库适配器对象
-        DataSet myds;//声明数据集对象
-        StudentInfo stu = new StudentInfo();
+        readonly StudentInfo stu = new StudentInfo();
         public SearchCourseInfo()
         {
             InitializeComponent();
@@ -42,7 +38,17 @@ namespace CAMS.Student
 
         private void Button1_Click(object sender, EventArgs e)
         {
-            string strselect = "select * from course where";
+            string strselect = "SELECT \n" +
+                               " course.number 课程号, \n" +
+                               " course.cname 课程中文名, \n" +
+                               " course.ename 课程英文名, \n" +
+                               " course.score 学分, \n" +
+                               " course.chour 周理论学时, \n" +
+                               " course.lhour 周实验学时, \n" +
+                               " course.tchour 理论总学时, \n" +
+                               " course.tlhour 实验总学时 \n" +
+                               " FROM course \n" +
+                               " WHERE";
             if (comboBox2.Text == "模糊查询")
             {
                 if (comboBox1.Text == "课程号")
@@ -80,11 +86,7 @@ namespace CAMS.Student
             }
             if (!string.IsNullOrWhiteSpace(textBox1.Text.Trim()))
             {
-                sqlcon = new SqlConnection(strCon);//实例化数据库连接对象
-                sqlda = new SqlDataAdapter(strselect, sqlcon);//实例化数据库桥接器对象
-                myds = new DataSet();//实例化数据集对象
-                sqlda.Fill(myds);//填充数据集
-                dataGridView1.DataSource = myds.Tables[0];
+                dataGridView1.DataSource = YRHelper.GetFillData(strselect);
             }
             else
             {

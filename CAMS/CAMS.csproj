@@ -134,6 +134,13 @@
     <Compile Include="Admin\FrmStuManage.Designer.cs">
       <DependentUpon>FrmStuManage.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student\ChooseCoursePost.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student\ChooseCoursePost.Designer.cs">
+      <DependentUpon>ChooseCoursePost.cs</DependentUpon>
+    </Compile>
+    <Compile Include="YRhelper.cs" />
     <Compile Include="Common\Style.cs" />
     <Compile Include="DBHelper.cs" />
     <Compile Include="FrmLogin.cs">
@@ -297,6 +304,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="Student\ChooseCoursePost.resx">
+      <DependentUpon>ChooseCoursePost.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Teacher\EduPro.resx">
       <DependentUpon>EduPro.cs</DependentUpon>
     </EmbeddedResource>

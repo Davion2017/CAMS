@@ -11,7 +11,6 @@ namespace CAMS.Admin
 {
     class StudentInfo
     {
-
         public string name { get; set; }
         public string scode { get; set; }
         public string gender { get; set; }

@@ -54,7 +54,7 @@ namespace CAMS
 
         private void OpenForm(string sql, string type)
         {
-            SqlDataReader sqlData = DBHelper.GetDataReader(sql);
+            SqlDataReader sqlData = YRHelper.GetDataReader(sql);
             if (sqlData.HasRows)
             {
                 switch(type)

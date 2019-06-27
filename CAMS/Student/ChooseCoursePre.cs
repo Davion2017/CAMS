@@ -76,6 +76,7 @@ namespace CAMS.Student
             SqlDataReader sqlData = YRHelper.GetDataReader(sqlstatus);
             sqlData.Read();
             //获取semester_id做准备
+
             string selectid = "select id from student where scode = '" + stu.scode + "';";
             SqlDataReader sqlData1 = YRHelper.GetDataReader(selectid);
             sqlData1.Read();
@@ -85,18 +86,46 @@ namespace CAMS.Student
                 string stradd = "insert into plan_study_course(course_id,semester_id,student_id) values('" + cno + "','" + sqlData["id"] + "','" + sqlData1["id"] + "')";
                 if (DialogResult.Yes == MessageBox.Show("您确定要增选该门课程?", "提示", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
-                    string sqlstr = "select course_id,student_id from plan_study_course where student_id = '" + sqlData1["id"] + "';";
+                    string sqlstr = "select course_id,student_id from plan_study_course where student_id = '" + sqlData1["id"] + "' and semester_id = '" + sqlData["id"] + "';";
                     SqlDataReader sqlData2 = YRHelper.GetDataReader(sqlstr);
                     sqlData2.Read();
-                    //获取已选课程中点中课程的course_id、student_id做准备
-                    string sqlstr1 = "Select * from plan_study_course where course_id = '" + cno + "' and student_id = '" + sqlData1["id"] + "';";
-                    SqlDataReader sqlData3 = YRHelper.GetDataReader(sqlstr1);
-                    sqlData3.Read();
-                    if (!sqlData3.HasRows)
+                    //为获取已选课程中点中课程的course_id、student_id做准备
+
+                    string sqlstr2 = "select * from curriculum where course_id = '" + cno + "' and semester = '" + sqlData["id"] + "';";
+                    SqlDataReader sqlData4 = YRHelper.GetDataReader(sqlstr2);
+                    sqlData4.Read();
+                    if (sqlData2.HasRows) //已选课程表不为空
                     {
-                        string sqlstr2 = "Select * from plan_study_course where course_id = '" + cno + "' and course_id in(Select course_id from curriculum where semester = '" + sqlData["id"] + "')";
-                        SqlDataReader sqlData4 = YRHelper.GetDataReader(sqlstr2);
-                        sqlData4.Read();
+                        string sqlstr1 = "Select * from plan_study_course where course_id = '" + cno + "' and student_id = '" + sqlData2["student_id"] + "';";
+                        SqlDataReader sqlData3 = YRHelper.GetDataReader(sqlstr1);
+                        sqlData3.Read();
+                        if (!sqlData3.HasRows)
+                        {
+
+                            //该学期是否可以选择这门课
+                            if (sqlData4.HasRows)
+                            {
+                                if (YRHelper.GetExcuteNonQuery(stradd) > 0)
+                                {
+                                    MessageBox.Show("增选成功");
+                                }
+                                else
+                                {
+                                    MessageBox.Show("增选失败");
+                                }
+                            }
+                            else
+                            {
+                                MessageBox.Show("该学期不可选此门课");
+                            }
+                        }
+                        else
+                        {
+                            MessageBox.Show("该课已选");
+                        }
+                    }
+                    else
+                    {
                         if (sqlData4.HasRows)
                         {
                             if (YRHelper.GetExcuteNonQuery(stradd) > 0)
@@ -112,10 +141,6 @@ namespace CAMS.Student
                         {
                             MessageBox.Show("该学期不可选此门课");
                         }
-                    }
-                    else
-                    {
-                        MessageBox.Show("该课已选");
                     }
                 }
             }

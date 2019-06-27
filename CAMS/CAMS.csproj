@@ -151,6 +151,12 @@
     <Compile Include="Student\ChooseCoursePost.Designer.cs">
       <DependentUpon>ChooseCoursePost.cs</DependentUpon>
     </Compile>
+    <Compile Include="Student\ChooseCoursePre.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Student\ChooseCoursePre.Designer.cs">
+      <DependentUpon>ChooseCoursePre.cs</DependentUpon>
+    </Compile>
     <Compile Include="YRhelper.cs" />
     <Compile Include="Common\Style.cs" />
     <Compile Include="DBHelper.cs" />
@@ -312,6 +318,9 @@
     </Compile>
     <EmbeddedResource Include="Student\ChooseCoursePost.resx">
       <DependentUpon>ChooseCoursePost.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student\ChooseCoursePre.resx">
+      <DependentUpon>ChooseCoursePre.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Teacher\EduPro.resx">
       <DependentUpon>EduPro.cs</DependentUpon>

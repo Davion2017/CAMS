@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace CAMS.Admin
 {
-    class StudentInfo
+    public class StudentInfo
     {
         public string name { get; set; }
         public string scode { get; set; }
@@ -17,6 +17,7 @@ namespace CAMS.Admin
         public string photo { get; set; }
         public int class_id { get; set; }
         public string password { get; set; }
+        public int id { get; set; }
 
         /// <summary>
         /// 无参构造函数
@@ -24,7 +25,7 @@ namespace CAMS.Admin
         public StudentInfo()
         {
 
-        }
+        }       
 
         /// <summary>
         /// 有参构造函数，根据学号初始化学生信息
@@ -42,7 +43,7 @@ namespace CAMS.Admin
             gender = sqlData["gender"].ToString();
             class_id = Convert.ToInt32(sqlData["class_id"].ToString());
             photo = Application.StartupPath.Replace("bin\\Debug", "") + sqlData["photo"].ToString().Replace("~", "Resources");
-
+            id = Convert.ToInt32(sqlData["id"]);
             sqlData.Close();
         }
 

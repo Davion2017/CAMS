@@ -17,12 +17,12 @@ namespace CAMS.Student
     public partial class FrmStudent : Form
     {
         private string Account;
-        StudentInfo Stu = new StudentInfo();
+        StudentInfo Stu;
         public FrmStudent(string account)
         {
             InitializeComponent();
             this.Account = account;
-            this.Stu.scode = Account;
+            this.Stu = new StudentInfo(account);
         }
         private void FrmStudent_Load(object sender, EventArgs e)
         {
@@ -97,27 +97,48 @@ namespace CAMS.Student
 
         private void Button8_Click(object sender, EventArgs e)
         {
-            string sqlstatus1 = "select status from course_status where name = '预选' ;";
-            SqlDataReader sqlData1 = YRHelper.GetDataReader(sqlstatus1);
-            sqlData1.Read();
-            string sqlstatus2 = "select status from course_status where name = '正选';";
-            SqlDataReader sqlData2 = YRHelper.GetDataReader(sqlstatus2);
-            sqlData2.Read();
-            if (sqlData1["status"].ToString() == "1")
+            //string sqlstatus1 = "select status from course_status where name = '预选' ;";
+            //SqlDataReader sqlData1 = YRHelper.GetDataReader(sqlstatus1);
+            //sqlData1.Read();
+            //string sqlstatus2 = "select status from course_status where name = '正选';";
+            //SqlDataReader sqlData2 = YRHelper.GetDataReader(sqlstatus2);
+            //sqlData2.Read();
+            //if (sqlData1["status"].ToString() == "1")
+            //{
+            //    ChooseCoursePre choosecoursepre = new ChooseCoursePre(Account);
+            //    this.panel2.Controls.Clear();
+            //    this.panel2.Controls.Add(choosecoursepre);
+            //}
+            //else if(sqlData2["status"].ToString() == "1")
+            //{
+            //    ChooseCoursePost choosecoursepost = new ChooseCoursePost(Account);
+            //    this.panel2.Controls.Clear();
+            //    this.panel2.Controls.Add(choosecoursepost);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("选课系统未开启");
+            //}
+            int result1 = DBHelper.ExecuteScalar<int>("select status from course_status where name='预选'");
+            int result2 = DBHelper.ExecuteScalar<int>("select status from course_status where name='预选完成'");
+            int result3 = DBHelper.ExecuteScalar<int>("select status from course_status where name='正选'");
+            int result4 = DBHelper.ExecuteScalar<int>("select status from course_status where name='正选完成'");
+            if(result1 == 1 && result2 == 0)
             {
-                ChooseCoursePre choosecoursepre = new ChooseCoursePre(Account);
                 this.panel2.Controls.Clear();
-                this.panel2.Controls.Add(choosecoursepre);
+                ChooseCoursePre chooseCoursePre = new ChooseCoursePre(this.Stu.scode);
+                this.panel2.Controls.Add(chooseCoursePre);
             }
-            else if(sqlData2["status"].ToString() == "1")
+            else if(result3 == 1 && result4 == 0)
             {
-                ChooseCoursePost choosecoursepost = new ChooseCoursePost(Account);
                 this.panel2.Controls.Clear();
-                this.panel2.Controls.Add(choosecoursepost);
+                ChooseCoursePost chooseCoursePost = new ChooseCoursePost(this.Stu.scode);
+                this.panel2.Controls.Add(chooseCoursePost);
             }
             else
             {
-                MessageBox.Show("选课系统未开启");
+                MessageBox.Show("选课未开启");
+                this.panel2.Controls.Clear();
             }
         }
     }

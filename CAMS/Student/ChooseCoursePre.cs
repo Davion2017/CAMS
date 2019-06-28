@@ -170,7 +170,7 @@ namespace CAMS.Student
             string selectid = "select id from student where scode = '" + stu.scode + "';";
             SqlDataReader sqlData1 = YRHelper.GetDataReader(selectid);
             sqlData1.Read();
-            string strselect = "select course.id,cname,ename,score from plan_study_course,course where course.id=plan_study_course.course_id and student_id = '" + sqlData1["id"] + "';";
+            string strselect = "select course.id,cname,ename,score from plan_study_course,course where course.id=plan_study_course.course_id and student_id = '" + sqlData1["id"] + "' and semester_id='" + semester_id + "';";
             dataGridView2.DataSource = YRHelper.GetFillData(strselect);
         }
     }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CAMS.Admin;
+using CAMS.Common;
 
 namespace CAMS.Student
 {
@@ -30,6 +31,8 @@ namespace CAMS.Student
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
             label5.Text = comboBox1.Text;
+
+            Style.DgvUI(dataGridView1);
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -45,6 +48,11 @@ namespace CAMS.Student
                                 "education_program \n" +
                                 "WHERE name = '" + comboBox1.Text + "' and publish_year = '" + comboBox2.Text + "'";
             dataGridView1.DataSource = YRHelper.GetFillData(strselect);
+        }
+
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Style.DgvBind(dataGridView1);
         }
     }
 }

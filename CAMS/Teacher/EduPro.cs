@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CAMS.Admin;
+using CAMS.Common;
 
 namespace CAMS.Teacher
 {
@@ -44,6 +45,12 @@ namespace CAMS.Teacher
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
             label5.Text = comboBox2.Text;
+            Style.DgvUI(dataGridView1);
+        }
+
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Style.DgvBind(dataGridView1);
         }
     }
 }

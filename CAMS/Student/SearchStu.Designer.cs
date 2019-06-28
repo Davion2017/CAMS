@@ -40,9 +40,10 @@
             // 
             this.textBox1.Font = new System.Drawing.Font("宋体", 12F);
             this.textBox1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.textBox1.Location = new System.Drawing.Point(175, 165);
+            this.textBox1.Location = new System.Drawing.Point(131, 132);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 30);
+            this.textBox1.Size = new System.Drawing.Size(123, 26);
             this.textBox1.TabIndex = 0;
             this.textBox1.Text = "请输入关键词！";
             this.textBox1.Click += new System.EventHandler(this.TextBox1_Click);
@@ -54,9 +55,10 @@
             this.comboBox1.Items.AddRange(new object[] {
             "学号",
             "姓名"});
-            this.comboBox1.Location = new System.Drawing.Point(344, 167);
+            this.comboBox1.Location = new System.Drawing.Point(258, 134);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(147, 28);
+            this.comboBox1.Size = new System.Drawing.Size(111, 24);
             this.comboBox1.TabIndex = 2;
             // 
             // comboBox2
@@ -66,16 +68,18 @@
             this.comboBox2.Items.AddRange(new object[] {
             "模糊",
             "精确"});
-            this.comboBox2.Location = new System.Drawing.Point(497, 167);
+            this.comboBox2.Location = new System.Drawing.Point(373, 134);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(147, 28);
+            this.comboBox2.Size = new System.Drawing.Size(111, 24);
             this.comboBox2.TabIndex = 3;
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(689, 165);
+            this.button1.Location = new System.Drawing.Point(517, 132);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 37);
+            this.button1.Size = new System.Drawing.Size(58, 30);
             this.button1.TabIndex = 4;
             this.button1.Text = "查询";
             this.button1.UseVisualStyleBackColor = true;
@@ -84,16 +88,18 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(138, 297);
+            this.dataGridView1.Location = new System.Drawing.Point(104, 238);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(655, 163);
+            this.dataGridView1.Size = new System.Drawing.Size(491, 130);
             this.dataGridView1.TabIndex = 5;
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView1_DataBindingComplete);
             // 
             // SearchStu
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
@@ -101,8 +107,9 @@
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox1);
             this.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SearchStu";
-            this.Size = new System.Drawing.Size(917, 687);
+            this.Size = new System.Drawing.Size(688, 550);
             this.Load += new System.EventHandler(this.SearchStu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

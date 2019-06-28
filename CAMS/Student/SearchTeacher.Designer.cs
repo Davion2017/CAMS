@@ -40,18 +40,21 @@
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(136, 258);
+            this.dataGridView1.Location = new System.Drawing.Point(102, 206);
+            this.dataGridView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 27;
-            this.dataGridView1.Size = new System.Drawing.Size(655, 163);
+            this.dataGridView1.Size = new System.Drawing.Size(491, 130);
             this.dataGridView1.TabIndex = 10;
+            this.dataGridView1.DataBindingComplete += new System.Windows.Forms.DataGridViewBindingCompleteEventHandler(this.DataGridView1_DataBindingComplete);
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(687, 166);
+            this.button1.Location = new System.Drawing.Point(515, 133);
+            this.button1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(77, 37);
+            this.button1.Size = new System.Drawing.Size(58, 30);
             this.button1.TabIndex = 9;
             this.button1.Text = "查询";
             this.button1.UseVisualStyleBackColor = true;
@@ -64,9 +67,10 @@
             this.comboBox2.Items.AddRange(new object[] {
             "模糊",
             "精确"});
-            this.comboBox2.Location = new System.Drawing.Point(495, 168);
+            this.comboBox2.Location = new System.Drawing.Point(371, 134);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(147, 28);
+            this.comboBox2.Size = new System.Drawing.Size(111, 24);
             this.comboBox2.TabIndex = 8;
             // 
             // comboBox1
@@ -76,33 +80,36 @@
             this.comboBox1.Items.AddRange(new object[] {
             "工号",
             "姓名"});
-            this.comboBox1.Location = new System.Drawing.Point(342, 168);
+            this.comboBox1.Location = new System.Drawing.Point(256, 134);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(147, 28);
+            this.comboBox1.Size = new System.Drawing.Size(111, 24);
             this.comboBox1.TabIndex = 7;
             // 
             // textBox1
             // 
             this.textBox1.Font = new System.Drawing.Font("宋体", 12F);
             this.textBox1.ForeColor = System.Drawing.SystemColors.GrayText;
-            this.textBox1.Location = new System.Drawing.Point(173, 166);
+            this.textBox1.Location = new System.Drawing.Point(130, 133);
+            this.textBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(163, 30);
+            this.textBox1.Size = new System.Drawing.Size(123, 26);
             this.textBox1.TabIndex = 6;
             this.textBox1.Text = "请输入关键词！";
             this.textBox1.Click += new System.EventHandler(this.TextBox1_Click);
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(136, 438);
+            this.richTextBox1.Location = new System.Drawing.Point(102, 350);
+            this.richTextBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(655, 108);
+            this.richTextBox1.Size = new System.Drawing.Size(492, 87);
             this.richTextBox1.TabIndex = 11;
             this.richTextBox1.Text = "";
             // 
             // SearchTeacher
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.dataGridView1);
@@ -110,8 +117,9 @@
             this.Controls.Add(this.comboBox2);
             this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "SearchTeacher";
-            this.Size = new System.Drawing.Size(917, 687);
+            this.Size = new System.Drawing.Size(688, 550);
             this.Load += new System.EventHandler(this.SearchTeacher_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

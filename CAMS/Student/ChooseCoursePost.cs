@@ -94,5 +94,15 @@ namespace CAMS.Student
             }
             MsgInit();
         }
+
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Style.DgvBind(dataGridView1);
+        }
+
+        private void DataGridView2_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Style.DgvBind(dataGridView1);
+        }
     }
 }

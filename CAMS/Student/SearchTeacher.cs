@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
 using CAMS.Admin;
+using CAMS.Common;
 
 namespace CAMS.Student
 {
@@ -109,6 +110,12 @@ namespace CAMS.Student
         {
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
+            Style.DgvUI(dataGridView1);
+        }
+
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Style.DgvBind(dataGridView1);
         }
     }
 }

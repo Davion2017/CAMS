@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CAMS.Admin;
 using System.Data.SqlClient;
+using CAMS.Common;
 
 namespace CAMS.Student
 {
@@ -33,6 +34,7 @@ namespace CAMS.Student
         {
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
+            Style.DgvUI(dataGridView1);
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -89,6 +91,11 @@ namespace CAMS.Student
                 MessageBox.Show("不可为空");
                 textBox1.Clear();
             }
+        }
+
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Style.DgvBind(dataGridView1);
         }
     }
 }

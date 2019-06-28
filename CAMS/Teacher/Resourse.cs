@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CAMS.Admin;
 using System.Data.SqlClient;
+using CAMS.Common;
 
 namespace CAMS.Teacher
 {
@@ -24,6 +25,7 @@ namespace CAMS.Teacher
         {
             InitializeComponent();
             this.Tea.Tcode = Account;
+            Style.DgvUI(dataGridView1);
         }
 
         private void Button1_Click(object sender, EventArgs e)
@@ -91,6 +93,9 @@ namespace CAMS.Teacher
             
         }
 
-       
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Style.DgvBind(dataGridView1);
+        }
     }
 }

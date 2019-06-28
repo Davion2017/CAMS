@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using CAMS.Admin;
 using System.Data.SqlClient;
+using CAMS.Common;
 
 namespace CAMS.Student
 {
@@ -40,6 +41,12 @@ namespace CAMS.Student
             //显示学生个人信息
             dataGridView1.DataSource = YRHelper.GetFillData(s);
 
+            Style.DgvUI(dataGridView1);
+        }
+
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Style.DgvBind(dataGridView1);
         }
     }
 }

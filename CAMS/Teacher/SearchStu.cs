@@ -30,6 +30,7 @@ namespace CAMS.Teacher
         {
             comboBox1.SelectedIndex = 0;
             comboBox2.SelectedIndex = 0;
+            Style.DgvUI(dataGridView1);
             
         }
 
@@ -86,6 +87,11 @@ namespace CAMS.Teacher
             {
                 dataGridView1.DataSource = Dyy.GetFillData(strselect);
             }
+        }
+
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Style.DgvBind(dataGridView1);
         }
     }
 }

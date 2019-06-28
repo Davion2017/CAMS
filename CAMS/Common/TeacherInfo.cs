@@ -10,6 +10,7 @@ namespace CAMS.Admin
 {
     class TeacherInfo
     {
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Gender { get; set; }
         public string Degree { get; set; }
@@ -33,10 +34,11 @@ namespace CAMS.Admin
         /// <param name="tcode"></param>
         public TeacherInfo(string tcode)
         {
-            string sql = "select * from student where scode='" + tcode + "';";
+            string sql = "select * from teacher where tcode='" + tcode + "'";
             SqlDataReader sqlData = DBHelper.GetDataReader(sql);
             sqlData.Read();
 
+            Id = Convert.ToInt32(sqlData["id"].ToString());
             Name = sqlData["name"].ToString();
             Gender = sqlData["gender"].ToString();
             Degree = sqlData["degree"].ToString();

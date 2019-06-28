@@ -173,5 +173,15 @@ namespace CAMS.Student
             string strselect = "select course.id,cname,ename,score from plan_study_course,course where course.id=plan_study_course.course_id and student_id = '" + sqlData1["id"] + "' and semester_id='" + semester_id + "';";
             dataGridView2.DataSource = YRHelper.GetFillData(strselect);
         }
+
+        private void DataGridView1_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Style.DgvBind(dataGridView1);
+        }
+
+        private void DataGridView2_DataBindingComplete(object sender, DataGridViewBindingCompleteEventArgs e)
+        {
+            Style.DgvBind(dataGridView1);
+        }
     }
 }
